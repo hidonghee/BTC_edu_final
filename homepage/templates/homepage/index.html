@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>main 페이지입니다.</h1>
+    <p>
+    {% if user.is_authenticated %}
+        Hi {{user.id}} <br>
+        <a href="users/logout">로그아웃</a>
+    {% else %}
+        <a href="users/login">로그인</a>
+    {% endif %}
+    </p>
+</body>
+</html>
