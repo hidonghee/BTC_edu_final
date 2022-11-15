@@ -14,9 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from abcbit2 import views
+from django.urls import path, include
+#=> 생성한 모든 앱 가져오기!
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name="index"),
+    # 페이지 메인
+    path('', include('homepage.urls')),
+    path('chart/', include('chart.urls')),
+    path('exchange/', include('exchange.urls')),
+    path('history/', include('history.urls')),
+    path('users/', include('users.urls'))
 ]
