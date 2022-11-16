@@ -9,9 +9,11 @@
     <p>
     {% if user.is_authenticated %}
         Hi {{user.id}} <br>
+        <a href="history/">자산 조회</a>
         <a href="users/logout">로그아웃</a>
     {% else %}
         <a href="users/login">로그인</a>
+        <a href="users/signup">회원가입</a>
     {% endif %}
     </p>
 </body>
