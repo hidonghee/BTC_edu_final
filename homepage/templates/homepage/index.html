@@ -9,9 +9,9 @@
 	<meta name="description" content="fullPage continuous scrolling demo." />
 	<meta name="keywords"  content="fullpage,jquery,demo,scroll,loop,continuous" />
 	<meta name="Resource-type" content="Document" />
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style3.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style2.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style3.css' %}">
 	<title>ABCbit</title>
 	<style>
 	/* Style for our header texts
@@ -54,7 +54,7 @@
 		z-index: 4;
 		width: 100%;
 		left: 0;
-		top: 43%;
+		top: 41%;
 
 		/*
 		* Preventing flicker on some browsers
@@ -70,12 +70,10 @@
 		overflow: hidden;
 	}
 
-
 	/* Bottom menu
 	* --------------------------------------- */
 	#infoMenu li a {
 		color: #fff;
-	}
 
 
 	/* Hiding video controls
@@ -84,9 +82,9 @@
 	video::-webkit-media-controls {
 	  display:none !important;
 	}
-
 	</style>
 </head>
+
 <body>
     <ul id="menu">
 	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">home</a></li>
@@ -95,15 +93,29 @@
 </ul>
 
 <div id="fullpage">
-	<div class="section " id="section0">
+	<div class="section demo" id="section0">
 <!--		<h1>fullPage.js</h1>-->
 <!--		<p>Continuous Scrolling Enabled</p>-->
 		<video id="myVideo" loop muted data-autoplay playsinline>
-			<source src="{% static 'homepage/images/bg2.mp4' %}" type="video/mp4">
+			<source src="{% static 'homepage/images/bg4.mp4' %}" type="video/mp4">
 		</video>
 		<div class="layer">
 			<div class="main_title"> 가장 안전한 코인 거래소</div>
-			<img src="{% static 'homepage/images/ABC logo-02.png' %}"/>
+			<img style="width: 22%" src="{% static 'homepage/images/ABC logo-04.png' %}"/>
+			<h1>main 페이지입니다.</h1>
+			<p>
+			{% if user.is_authenticated %}
+				Hi {{user.id}} <br>
+				<a href="history/">자산 조회</a>
+				<a href="users/logout">로그아웃</a>
+			{% else %}
+				<a href="users/login">로그인</a>
+				<a href="users/signup">회원가입</a>
+			{% endif %}
+			</p>
+		</div>
+		<div id="scroll">
+  				<a href="#section1"><span></span>Scroll</a>
 		</div>
 	</div>
 	<div class="section" id="section1">
@@ -139,6 +151,5 @@
       },
     });
 </script>
-
 </body>
 </html>

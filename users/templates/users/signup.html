@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 페이지</title>
+</head>
+<body>
+<div class="wrapper" style="text-align: center;">
+    <h1>회원가입</h1>
+    <form method="POST">
+        {% csrf_token %}
+        아이디: <br>
+        <input name="userid" type="text">
+        <br>
+        비밀번호: <br>
+        <input name="password1" type="password">
+        <br>
+        비밀번호 확인: <br>
+        <input name="password2" type="password">
+        <br>
+        이름: <br>
+        <input name="username" type="text">
+        <br>
+        이메일: <br>
+        <input name="email" type="email">
+        <br>
+        성별: <br>
+        <input name="sex" type="text">
+        <br>
+        주소: <br>
+        <input name="addr" type="text">
+        <br>
+        액세스키: <br>
+        <input name="access_key" type="text">
+        <br>
+        시크릿키: <br>
+        <input name="secret_key" type="text">
+        <br>
+        <br><br>
+        <input type="submit" class="btn btn-primary" value="Sign Up">
+    </form>
+</div>
+</body>
+</html>
