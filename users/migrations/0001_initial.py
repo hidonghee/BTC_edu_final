@@ -31,5 +31,4 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
             },
-        ),
     ]
