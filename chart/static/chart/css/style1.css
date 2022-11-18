@@ -1,0 +1,41 @@
+.coin_price {
+    background: lightgray;
+    height: 10vh;
+    margin: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    float: left;
+    width: 62%;
+}
+
+.coin_graph {
+    background: #f2f4f7;
+    height: 60vh;
+    width: 62%;
+    float: left;
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 20px;
+}
+
+.coin_masu {
+    background: #dedede;
+    height: 30vh;
+    width: 62%;
+    float: left;
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 20px;
+}
+
+.coin_list {
+    position: absolute;
+    background: #f2f4f7;
+    right: 2%;
+    height: 108vh;
+    width: 30%;
+    float: left;
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 20px;
+}
