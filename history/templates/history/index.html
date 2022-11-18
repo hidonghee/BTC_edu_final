@@ -7,10 +7,12 @@
 <body>
 
 <h1>{{user.id}}님 자산 조회</h1>
-보유 현금 : {{krw}}원<br>
+보유 현금 : {{ krw }}원<br>
 <br>
-보유 코인 : {{my_balance}} <br>
+보유 코인 : {{ my_balance }} <br>
 <br>
-
+{% for i in my_balance %}
+    <p> 코인명 : {{ i.currency }} 수량 : {{ i.balance }} </p>
+{% endfor%}
 </body>
 </html>
