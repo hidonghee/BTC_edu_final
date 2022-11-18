@@ -1,20 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+{% load static %}
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="Resource-type" content="Document"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style3.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style2.css' %}">
+    <title>ABCbit</title>
+    <style>
+        /* Style for our header texts
+        * --------------------------------------- */
+        h1 {
+            font-size: 5em;
+            font-family: arial, helvetica;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Centered texts in each section
+        * --------------------------------------- */
+        .section {
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #myVideo {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            background-color: black; /* in case the video doesn't fit the whole page*/
+            background-image: /* our video */;
+            background-position: center center;
+            background-size: contain;
+            object-fit: cover; /*cover video background */
+            z-index: 3;
+        }
+
+        /* Layer with position absolute in order to have it over the video
+        * --------------------------------------- */
+        #section0 .layer {
+            position: absolute;
+            z-index: 4;
+            width: 100%;
+            left: 0;
+            top: 38%;
+
+            /*
+            * Preventing flicker on some browsers
+            * See http://stackoverflow.com/a/36671466/1081396  or issue #183
+            */
+            -webkit-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*solves problem with overflowing video in Mac with Chrome */
+        #section0 {
+            overflow: hidden;
+        }
+
+        /* Bottom menu
+        * --------------------------------------- */
+        #infoMenu li a {
+            color: #fff;
+
+
+        /* Hiding video controls
+        * See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
+        * --------------------------------------- */
+        video::-webkit-media-controls {
+            display: none !important;
+        }
+    </style>
 </head>
+
 <body>
-<h1>main 페이지입니다.</h1>
-    <p>
-    {% if user.is_authenticated %}
-        Hi {{user.id}} <br>
-        <a href="history/">자산 조회</a>
-        <a href="users/logout">로그아웃</a>
-    {% else %}
-        <a href="users/login">로그인</a>
-        <a href="users/signup">회원가입</a>
-    {% endif %}
-    </p>
+<ul id="menu">
+    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">home</a></li>
+    <li data-menuanchor="secondPage"><a href="#secondPage">Deal</a></li>
+    <li data-menuanchor="3rdPage"><a href="#3rdPage">Automatic Trading</a></li>
+</ul>
+
+<div id="fullpage">
+    <div class="section demo" id="section0">
+        <!--		<h1>fullPage.js</h1>-->
+        <!--		<p>Continuous Scrolling Enabled</p>-->
+        <video id="myVideo" loop muted data-autoplay playsinline>
+            <source src="{% static 'homepage/images/bg4.mp4' %}" type="video/mp4">
+        </video>
+        {% if user.is_authenticated %}
+        <div class="main_user">환영합니다 <b>{{user.id}}</b>님🙇‍♀</div>
+        {% else %}
+        <div class="main_user"> 로그인이 필요합니다</div>
+        {% endif %}
+        <div class="layer">
+            <div class="main_title"> 가장 안전한 코인 거래소</div>
+            <img style="width: 22%" src="{% static 'homepage/images/ABC logo-04.png' %}"/>
+            <p class="main_contents">
+                {% if user.is_authenticated %}
+            <div class="main_btn_box">
+                <a class="main_btn" href="users/logout">log-out </a>
+                <a class="main2_btn" href="history/">자산 조회</a>
+            </div>
+            {% else %}
+            <div class="main_btn_box">
+                <a class="main_btn" href="users/login">login </a>
+                <a class="main2_btn" href="users/signup">sign-up</a>
+            </div>
+            {% endif %}
+            </p>
+        </div>
+        <div id="scroll">
+            <a href="#section1"><span></span>Scroll</a>
+        </div>
+    </div>
+    <div class="section" id="section1">
+        <div class="intro">
+            <h1>Keep Scrolling</h1>
+            <p>Move to the first section and scroll up or move to the last and scroll down to see how it works.</p>
+        </div>
+    </div>
+    <div class="section" id="section2">
+        <div class="intro">
+            <h1>Scroll Down</h1>
+            <p>And it will animate down to the first section</p>
+        </div>
+    </div>
+</div>
+
+<!--    <script type="text/javascript" src="/static/js/csrftoken.js"></script>-->
+<script type="text/javascript" src="{% static 'homepage/js/fullpage.js' %}"></script>
+<script type="text/javascript" src="{% static 'homepage/js/examples.js' %}"></script>
+
+<script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+        sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+        menu: '#menu',
+        continuousVertical: true,
+        navigation: true,
+        afterLoad: function (origin, destination, direction, trigger) {
+            console.log("afterLoad: destination:" + destination.index);
+        },
+        onLeave: function (origin, destination, direction, trigger) {
+            console.log("onLeave: destination:" + destination.index);
+        },
+    });
+</script>
 </body>
 </html>

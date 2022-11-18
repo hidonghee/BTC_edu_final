@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+{% load static %}
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'chart/css/style1.css' %}">
 </head>
 <body>
-  <h1>chart 페이지 입니다.</h1>
+<!--코인 현재 가격-->
+<div class="coin_price">
+    <h1> 코인 가격 </h1>
+</div>
+
+<!--코인 시세 변동 그래프 -->
+<div class="coin_graph">
+    <h1> 코인 변동 그래프</h1>
+</div>
+
+<!--코인 매수 -->
+<div class="coin_masu">
+    <h1> 코인 매수</h1>
+</div>
+
+<!-- 코인 리스트 -->
+<div class="coin_list">
+    <h1> 코인 리스트 </h1>
+</div>
 </body>
 </html>

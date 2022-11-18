@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@100;300;400;500&display=swap');
+
+/*font-family: 'Gowun Dodum', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;*/
+
+.main_title {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+#section0 > #scroll {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    margin-left: -23px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    box-sizing: border-box;
+}
+
+#scroll {
+    position: absolute;
+    z-index: 10;
+    top: 90%;
+    left: 48%;
+}
+
+#scroll a {
+    padding-top: 60px;
+}
+
+#scroll a span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    margin-left: -23px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    box-sizing: border-box;
+}
+
+
+#scroll a span::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    width: 16px;
+    height: 16px;
+    margin: -12px 0 0 -8px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+#scroll a span::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    content: '';
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, .1);
+    border-radius: 100%;
+    opacity: 0;
+    -webkit-animation: sdb03 2s infinite;
+    animation: sdb03 3s infinite;
+    box-sizing: border-box;
+}
+
+@-webkit-keyframes sdb03 {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        box-shadow: 0 0 0 60px rgba(255, 255, 255, .1);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes sdb03 {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        box-shadow: 0 0 0 60px rgba(255, 255, 255, .1);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#scroll a {
+    position: absolute;
+    left: 50%;
+    z-index: 2;
+    display: inline-block;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #fff;
+    font: normal 400 20px/1 'Josefin Sans', sans-serif;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: opacity .3s;
+}
+
+.demo a:hover {
+    opacity: .5;
+}
+
+.main_user {
+    position: absolute;
+    font-family: 'Noto Sans KR', sans-serif;
+    top: 3%;
+    right: 5%;
+    z-index: 4;
+    display: inline-block;
+    color: #fff;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: opacity .3s;
+}
+
+.main_btn_box {
+    position: absolute;
+    top: 115%;
+    width: 100%;
+    text-align: center;
+}
+
+.main_btn {
+    background-color: rgba(0, 0, 25, 0.5);
+    color: #fff;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    width: 125px;
+    font-size: 18px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.main_btn:hover {
+    background-color: #ff4141;
+    border: 3px solid #ff4141;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.main2_btn {
+    background-color: rgba(0, 0, 25, 0.5);
+    color: #fff;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 9px;
+    width: 125px;
+    font-size: 17px;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: inline-block;
+    margin: 10px;
+}
+
+.main2_btn:hover {
+    background-color: #002ac1;
+    border: 3px solid #002ac1;
+    color: #ffffff;
+    transition: 0.2s;
+}
