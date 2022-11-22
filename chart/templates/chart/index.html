@@ -3,32 +3,47 @@
 {% load static %}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Title</title>
+    <title>ABCbit</title>
     <link rel="stylesheet" type="text/css" href="{% static 'chart/css/style1.css' %}">
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
 </head>
+
 <body>
-<!--코인 현재 가격-->
-<div class="coin_price">
-    <h1> 코인 가격 </h1>
-    <script type="text/javascript" src = "{% static 'chart/js/ticker.js' %}"></script>
-</div>
+<div id="chart_layout">
+    <!--코인 현재 가격-->
+    <header>
+        <section>
+            <img src="{static chart/images/ABC logo-04.png}">
+            <nav>
+                <a href="/">자동 매매</a>
+            </nav>
+            <div>누구누구 님</div>
+        </section>
+    </header>
 
-<!--코인 시세 변동 그래프 -->
-<div class="coin_graph" id = 'chartContainer'>
-    <h1> 코인 변동 그래프</h1>
-       <script type="text/javascript" src = "{% static 'chart/js/makechart.js' %}"></script>
-</div>
+    <div class=" contents">
+        <div class="coin_price">
+            <h1> 코인 가격 </h1>
+            <script type="text/javascript" src="{% static 'chart/js/ticker.js' %}"></script>
+        </div>
 
-<!--코인 매수 -->
-<div class="coin_masu">
-    <h1> 코인 매수</h1>
-</div>
+        <!--코인 시세 변동 그래프 -->
+        <div class="coin_graph" id='chartContainer'>
+            <h1> 코인 변동 그래프</h1>
+            <script type="text/javascript" src="{% static 'chart/js/makechart.js' %}"></script>
+        </div>
 
-<!-- 코인 리스트 -->
-<div class="coin_list">
-    <h1> 코인 리스트 </h1>
+        <!--코인 매수 -->
+        <div class="coin_masu">
+            <h1> 코인 매수</h1>
+        </div>
+
+        <!-- 코인 리스트 -->
+        <div class="coin_list">
+            <h1> 코인 리스트 </h1>
+        </div>
+    </div>
 </div>
 </body>
 </html>
