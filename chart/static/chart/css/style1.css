@@ -3,6 +3,16 @@
 /*font-family: 'Gowun Dodum', sans-serif;
 font-family: 'Noto Sans KR', sans-serif;*/
 
+/* ========== common ========== */
+body {
+    width: 100%;
+    background: linear-gradient(92deg, rgb(2 43 121) 0%, rgb(0 7 62) 80%);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ========== coin_price ========== */
 .coin_price {
     background: lightgray;
     height: 10vh;
@@ -14,7 +24,7 @@ font-family: 'Noto Sans KR', sans-serif;*/
 }
 
 .coin_graph {
-    background: #f2f4f7;
+    /*background: #f2f4f7;*/
     height: 60vh;
     width: 62%;
     float: left;
