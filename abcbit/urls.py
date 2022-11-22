@@ -22,7 +22,8 @@ urlpatterns = [
     # 페이지 메인
     path('', include('homepage.urls')),
     path('chart/', include('chart.urls')),
-    path('exchange/', include('exchange.urls')),
-    path('history/', include('history.urls')),
-    path('users/', include('users.urls'))
+    #path('exchange/', include('exchange.urls')),
+    #path('history/', include('history.urls')),
+    path('users/', include('users.urls')),
+    path('autotrading/', include('autotrading.urls'))
 ]
