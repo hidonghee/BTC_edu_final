@@ -1,17 +1,42 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@100;300;400;500&display=swap');
 
+/*font-family: 'Gowun Dodum', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;*/
+
+
+body {
+    width: 100%;
+    background: linear-gradient(92deg, rgb(2 43 121) 0%, rgb(0 7 62) 80%);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ===================== 로그인  ===================== */
 .login-page {
     width: 360px;
     padding: 8% 0 0;
     text-align: center;
-    position: relative;
     height: 100vh;
+    text-align: center;
+}
+
+.login-page img {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
 }
 
 .form {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 54%;
     transform: translate(-50%, -50%);
     z-index: 1;
     background: #FFFFFF;
@@ -52,24 +77,71 @@
     background: rgb(0 7 62);
 }
 
-.form .message {
+
+/* ===================== 회원가입  ===================== */
+.signup-page {
+    width: 360px;
+    padding: 8% 0 0;
+    text-align: center;
+    height: 100vh;
+}
+
+.signup-page img {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+}
+
+.signup-form {
+    position: absolute;
+    left: 50%;
+    top: 54%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: #FFFFFF;
+    width: 500px;
+    height: 60%;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    overflow: scroll
+}
+
+.signup-form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.btn {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.signup-form .message {
     margin: 15px 0 0;
     color: #b3b3b3;
     font-size: 12px;
 }
 
-.form .message a {
+.signup-form .message a {
     color: rgb(0 7 62);
     text-decoration: none;
 }
 
-.form .register-form {
+.signup-form .register-form {
     display: none;
 }
 
-body {
-    width: 100%;
-    background: linear-gradient(92deg, rgb(2 43 121) 0%, rgb(0 7 62) 80%);
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
+.signup-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333333;
+    font-size: 28px;
 }
