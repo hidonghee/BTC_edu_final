@@ -1,1 +1,1 @@
-__all__ = ["views"]
+__all__ = ["views", "chartmake","tests","ticker"]
