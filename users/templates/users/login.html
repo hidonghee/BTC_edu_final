@@ -10,13 +10,14 @@
 </head>
 
 <body>
-<div class="login-page>">
+<div class="login-page">
+    <a href="/"><img style="width: 15%" src="{% static 'users/images/ABC logo-04.png' %}"/></a>
     <div class="form">
         <form class="login-form" method="post" action="{% url 'login' %}">
             {% csrf_token %}
             {% include 'users/errors.html' %}
             <input type="text" placeholder="name" name="username" id="username">
-            <input type="text" placeholder="password" name="password" id="password">
+            <input type="password" placeholder="password" name="password" id="password">
             <button type="submit">login</button>
             <p class="message">Not registered? <a href="{% url 'signup' %}">Create an account</a></p>
         </form>

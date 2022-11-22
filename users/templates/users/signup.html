@@ -1,44 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
+{% load static %}
 <head>
-    <meta charset="UTF-8">
-    <title>회원가입 페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>ABCbit</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/style1.css' %}">
 </head>
+
 <body>
-<div class="wrapper" style="text-align: center;">
-    <h1>회원가입</h1>
-    <form method="POST">
-        {% csrf_token %}
-        아이디: <br>
-        <input name="userid" type="text">
-        <br>
-        비밀번호: <br>
-        <input name="password1" type="password">
-        <br>
-        비밀번호 확인: <br>
-        <input name="password2" type="password">
-        <br>
-        이름: <br>
-        <input name="username" type="text">
-        <br>
-        이메일: <br>
-        <input name="email" type="email">
-        <br>
-        성별: <br>
-        <input name="sex" type="text">
-        <br>
-        주소: <br>
-        <input name="addr" type="text">
-        <br>
-        액세스키: <br>
-        <input name="access_key" type="text">
-        <br>
-        시크릿키: <br>
-        <input name="secret_key" type="text">
-        <br>
-        <br><br>
-        <input type="submit" class="btn btn-primary" value="Sign Up">
-    </form>
+<div class="signup-page">
+    <a href="/"><img style="width: 15%" src="{% static 'users/images/ABC logo-04.png' %}"/></a>
+    <div class="wrapper signup-page" style="text-align: center;">
+        <form class="signup-form" method="POST">
+            <h1 class="signup-text">회원 가입</h1>
+            {% csrf_token %}
+            <input placeholder="아이디" name="userid" type="text">
+            <input placeholder="비밀번호" name="password1" type="password">
+            <input placeholder="비밀번호 확인" name="password2" type="password">
+            <input placeholder="이름" name="username" type="text">
+            <input placeholder="이메일" name="email" type="email">
+            <input placeholder="성별" name="sex" type="text">
+            <input placeholder="주소" name="addr" type="text">
+            <input placeholder="upbit access key" name="access_key" type="text">
+            <input placeholder="upbit secret key" name="secret_key" type="text">
+            <input style="background: rgb(2 43 121)" type="submit" class="btn btn-primary" value="Sign Up">
+        </form>
+    </div>
 </div>
 </body>
 </html>

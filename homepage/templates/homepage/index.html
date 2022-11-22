@@ -43,6 +43,22 @@
             z-index: 3;
         }
 
+        #myVideo2 {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            background-color: black; /* in case the video doesn't fit the whole page*/
+            background-image: /* our video */;
+            background-position: center center;
+            background-size: contain;
+            object-fit: cover; /*cover video background */
+            z-index: 3;
+        }
+
         /* Layer with position absolute in order to have it over the video
         * --------------------------------------- */
         #section0 .layer {
@@ -70,7 +86,7 @@
         * --------------------------------------- */
         #infoMenu li a {
             color: #fff;
-
+        }
 
         /* Hiding video controls
         * See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
@@ -84,7 +100,7 @@
 <body>
 <ul id="menu">
     <li data-menuanchor="firstPage" class="active"><a href="#firstPage">home</a></li>
-    <li data-menuanchor="secondPage"><a href="#secondPage">Deal</a></li>
+    <li data-menuanchor="secondPage"><a href="#secondPage">exchage</a></li>
     <li data-menuanchor="3rdPage"><a href="#3rdPage">Automatic Trading</a></li>
 </ul>
 
@@ -107,7 +123,7 @@
                 {% if user.is_authenticated %}
             <div class="main_btn_box">
                 <a class="main_btn" href="users/logout">log-out </a>
-                <a class="main2_btn" href="history/">자산 조회</a>
+                <a class="main2_btn" href="history/">거래소</a>
             </div>
             {% else %}
             <div class="main_btn_box">
@@ -122,15 +138,25 @@
         </div>
     </div>
     <div class="section" id="section1">
-        <div class="intro">
-            <h1>Keep Scrolling</h1>
-            <p>Move to the first section and scroll up or move to the last and scroll down to see how it works.</p>
+        <div class="intro s1_title">
+            <div class="s1_title_sub"> ABCbit에서 효율적인 <br/> 비트코인 거래를 해보세요!</div>
+            <div class="s1_title_main">ABCbit 거래소</div>
+            <!--            <div class="main_btn_box">
+                            <a class="s1_btn" href="/">거래소 가기</a>
+                        </div>-->
+        </div>
+        <div class="s1_img_wrap">
+            <img class="s1_img" src="{% static 'homepage/images/g3.png' %}" alt="Graph"/>
         </div>
     </div>
     <div class="section" id="section2">
-        <div class="intro">
-            <h1>Scroll Down</h1>
-            <p>And it will animate down to the first section</p>
+        <video id="myVideo2" loop muted data-autoplay playsinline>
+            <source src="{% static 'homepage/images/bg5.mp4' %}" type="video/mp4">
+        </video>
+        <div class="layer">
+            <div class="s2_title"> ABCbit의 자동 매매 솔루션과 함께, <br/> 내 자산을 불려 보세요!</div>
+            <img style="width: 22%" src="{% static 'homepage/images/ABC logo-04.png' %}"/>>
+            <button class="s2_btn" onclick="location.href='/'"> 자동 매매 시작 하기</button>
         </div>
     </div>
 </div>
