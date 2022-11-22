@@ -3,13 +3,7 @@ pip install pyupbit
 pip install dash
 
 """
-import dash
-from dash import dcc
-from dash import html
-import datetime
 import pyupbit
-import pandas as pd
-import plotly.graph_objects as go
 
 
 # 여기서 모든  캔들 함수는 데이터프레임 타입!
