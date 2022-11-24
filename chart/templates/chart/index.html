@@ -26,12 +26,15 @@
         <div class="coin_price">
             <h1> 코인 가격 </h1>
             <script type="text/javascript" src="{% static 'chart/js/ticker.js' %}"></script>
+            <div id="coin_strong"></div>
         </div>
 
         <!--코인 시세 변동 그래프 -->
         <div class="coin_graph" id='chartContainer'>
             <h1> 코인 변동 그래프</h1>
+
             <script type="text/javascript" src="{% static 'chart/js/makechart.js' %}"></script>
+
         </div>
 
         <!--코인 매수 -->
