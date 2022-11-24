@@ -22,7 +22,7 @@ abc_access = ""
 abc_secret = ""
 
 
-def getdata(request):
+def getdata(request, sql):
     ip = "abctest.cluster-czgliwfs2orh.ap-northeast-2.rds.amazonaws.com"
     dbname = "abcbit"
     username = "master"

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'exchange',
     'history',
     'homepage',
-    'users'
+    'users',
+    'autotrading'
 ]
 
 CHANNEL_LAYERS = {
