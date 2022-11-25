@@ -25,12 +25,14 @@ body {
 
 .coin_graph {
     /*background: #f2f4f7;*/
+    position: relative;
     height: 60vh;
     width: 62%;
     float: left;
     box-sizing: border-box;
     margin: 20px;
     padding: 20px;
+
 }
 
 .coin_masu {

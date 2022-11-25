@@ -61,7 +61,7 @@ window.onload = function () {
             });
         }
         stockChart.render();
-        setTimeout(updateData, 1500);
+        //setTimeout(updateData, 3500);
     }
 
     function updateData() {

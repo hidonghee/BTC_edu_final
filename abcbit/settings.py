@@ -39,8 +39,15 @@ INSTALLED_APPS = [
     'exchange',
     'history',
     'homepage',
-    'users'
+    'users',
+    'autotrading'
 ]
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
