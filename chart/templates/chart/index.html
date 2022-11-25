@@ -25,16 +25,14 @@
     <div class=" contents">
         <div class="coin_price">
             <h1> 코인 가격 </h1>
-            <script type="text/javascript" src="{% static 'chart/js/ticker.js' %}"></script>
-            <div id="coin_strong"></div>
+
+
         </div>
 
         <!--코인 시세 변동 그래프 -->
         <div class="coin_graph" id='chartContainer'>
             <h1> 코인 변동 그래프</h1>
-
             <script type="text/javascript" src="{% static 'chart/js/makechart.js' %}"></script>
-
         </div>
 
         <!--코인 매수 -->
@@ -72,7 +70,56 @@
 
         <!-- 코인 리스트 -->
         <div class="coin_list">
+
             <h1> 코인 리스트 </h1>
+            <script>
+                var coin_list = "{{nor_ticker|safe}}"
+            </script>
+            <script type="text/javascript" src="{% static 'chart/js/ticker.js' %}">
+            </script>
+            <article>
+                <span>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    코인명
+                                </th>
+                                <th>
+                                    현재가
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div>
+
+                        <table>
+                            <tbody>
+                            {% for list in ver_ticker %}
+                            <!-- 코인이름 -->
+                            <tr>
+                                <td>
+                                    <strong>
+                                        {{list.korean_name}}
+                                    </strong>
+                                    <em>
+                                        {{list.market}}
+                                    </em>
+                                </td>
+                            </tr>
+                            <!-- 코인 현재가-->
+                            <tr>
+                                <td>
+                                    <strong id="{{ list.market }}">
+                                    </strong>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </span>
+            </article>
         </div>
     </div>
 </div>
