@@ -43,6 +43,7 @@
     </div>
 </nav>
 
+<<<<<<< HEAD
 <div class="container" style="margin-top:20px; box-shadow: 0px 0px 5px grey;">
     <div class="row">
         <div class="col-sm-8">
@@ -91,11 +92,107 @@
                             <tr>
                                 <th scope="row" style="color: #000077">평단가</th>
                                 <td>{{ i.avg }}</td>
+=======
+    <div class=" contents">
+        <div class="coin_price">
+            <h1> 코인 가격 </h1>
+
+
+        </div>
+
+        <!--코인 시세 변동 그래프 -->
+        <div class="coin_graph" id='chartContainer'>
+            <h1> 코인 변동 그래프</h1>
+            <script type="text/javascript" src="{% static 'chart/js/makechart.js' %}"></script>
+        </div>
+
+        <!--코인 매수 -->
+        <div class="coin_masu">
+            <!--자산현황 시작 -->
+            <h1> 자산 현황 </h1>
+            <p>{{ user.id }} 님 자산 현황</p>
+            보유 현금 : {{ krw }}원<br>
+            <!--보유 코인 : {{ my_balance }} <br>-->
+            <!--테스트 : <br>-->
+            {% for i in coinlist %}
+            코인명 : {{ i.coin_name}} 금액(수량) : {{ i.balance}} 평단가: {{ i.avg }}<br>
+            {% endfor %}
+            <br>
+            <!-- 자산 현황 끝-->
+            <!-- 매수 매도 시작-->
+            <h1> 매수 매도</h1>
+            <form action="/chart/trade" method="POST">
+                {% csrf_token %}
+                <select name="side">\
+                    <option value="bid">매수</option>
+                    <option value="ask">매도</option>
+                </select>
+                <br><br>
+                코인명 : (ex KRW-BTC)<br>
+                <input name="market" type="text">
+                <br>
+                매수 or 매도 금액 : <br>
+                <input name="volume" type="text">
+                <br><br>
+                <input type="submit" class="btn btn-primary" value="주문하기">
+            </form>
+            <!-- 매수 매도 끝 -->
+        </div>
+
+        <!-- 코인 리스트 -->
+        <div class="coin_list">
+
+            <h1> 코인 리스트 </h1>
+            <script>
+                var coin_list = "{{nor_ticker|safe}}"
+            </script>
+            <script type="text/javascript" src="{% static 'chart/js/ticker.js' %}">
+            </script>
+            <article>
+                <span>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    코인명
+                                </th>
+                                <th>
+                                    현재가
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div>
+
+                        <table>
+                            <tbody>
+                            {% for list in ver_ticker %}
+                            <!-- 코인이름 -->
+                            <tr>
+                                <td>
+                                    <a href="#{{list.market}}" onclick=coin_chart("{{list.market}}")>
+                                        <strong>
+                                        {{list.korean_name}}
+                                        </strong>
+                                    </a>
+                                    <em>
+                                        {{list.market}}
+                                    </em>
+                                </td>
+                            </tr>
+                            <!-- 코인 현재가-->
+                            <tr>
+                                <td>
+                                    <strong id="{{ list.market }}_price">
+                                    </strong>
+                                </td>
+>>>>>>> 0a65618645ed7edffa2a228e1a495e78a9594400
                             </tr>
                             {% endfor %}
                             </tbody>
                         </table>
                     </div>
+<<<<<<< HEAD
                 </div>
                 <!-- 매수 매도 시작-->
                 <div class="col-sm-6 coin_trade">
@@ -166,6 +263,10 @@
                 {% endfor %}
                 </tbody>
             </table>
+=======
+                </span>
+            </article>
+>>>>>>> 0a65618645ed7edffa2a228e1a495e78a9594400
         </div>
     </div>
 </div>

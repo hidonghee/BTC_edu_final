@@ -107,4 +107,8 @@ def ticker_list(kind, verbose):
     # verbose = True하면 market, korean_name, english_name이 출력
     # false하면 market만 list로 출력됨.
     tickers = pyupbit.get_tickers(kind, verbose=verbose)
+<<<<<<< HEAD
     return tickers
+=======
+    return tickers
+>>>>>>> 0a65618645ed7edffa2a228e1a495e78a9594400
