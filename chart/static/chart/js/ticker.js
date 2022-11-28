@@ -46,9 +46,9 @@ function onOpen(evt) {
 function onMessage(evt) {
     var enc = new TextDecoder("utf-8");
     var arr = new Uint8Array(evt.data);
-    console.log(enc.decode(arr));
+    //console.log(enc.decode(arr));
     var data = JSON.parse(enc.decode(arr));
-    writeToScreen('<span style="color: blue;">' + data.tp + '</span>',data.cd);
+    writeToScreen('<span style="color: blue;">' + data.tp + '</span>',data.cd+'_price');
 }
 
 function onError(evt) {

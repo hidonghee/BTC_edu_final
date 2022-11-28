@@ -99,9 +99,11 @@
                             <!-- 코인이름 -->
                             <tr>
                                 <td>
-                                    <strong>
+                                    <a href="#{{list.market}}" onclick=coin_chart("{{list.market}}")>
+                                        <strong>
                                         {{list.korean_name}}
-                                    </strong>
+                                        </strong>
+                                    </a>
                                     <em>
                                         {{list.market}}
                                     </em>
@@ -110,7 +112,7 @@
                             <!-- 코인 현재가-->
                             <tr>
                                 <td>
-                                    <strong id="{{ list.market }}">
+                                    <strong id="{{ list.market }}_price">
                                     </strong>
                                 </td>
                             </tr>
