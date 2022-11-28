@@ -1,4 +1,13 @@
-window.onload = function () {
+
+/*
+* 코인별 차트 make js
+* 내용:
+* default onload: 종목은 비트코인 기본 onload, 차트는 기본적으로 1일이 먼저 표기
+*
+* */
+window.onload = coin_chart("KRW-BTC")
+
+function coin_chart(coin_name) {
     var dps1 = [], dps2 = [];
     var stockChart = new CanvasJS.StockChart("chartContainer", {
         theme: "light2",
@@ -65,6 +74,7 @@ window.onload = function () {
     }
 
     function updateData() {
-        $.getJSON("https://api.upbit.com/v1/candles/minutes/1?market=KRW-BTC&count=200", addData)
+        $.getJSON("https://api.upbit.com/v1/candles/days?market="+coin_name+"&count=200", addData)
     }
+
 }

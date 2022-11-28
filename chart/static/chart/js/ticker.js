@@ -25,19 +25,21 @@ function testWebSocket() {
     };
 }
 
-
 function onOpen(evt) {
     //writeToScreen("연결완료");
+    //console.log(test);
     var msg = [
         {"ticket": "test"},
         {
             "type": "ticker",
-            "codes": ["KRW-BTC"],
+            "codes": coin_list.split(',') ,
             "isOnlyRealtime": true
         },
         {"format": "SIMPLE"}
     ]
+
     msg = JSON.stringify(msg);
+    //console.log(msg);
     doSend(msg);
 }
 
@@ -46,7 +48,7 @@ function onMessage(evt) {
     var arr = new Uint8Array(evt.data);
     //console.log(enc.decode(arr));
     var data = JSON.parse(enc.decode(arr));
-    writeToScreen('<span style="color: blue;">' + data.tp + '</span>');
+    writeToScreen('<span style="color: blue;">' + data.tp + '</span>',data.cd+'_price');
 }
 
 function onError(evt) {
@@ -63,11 +65,10 @@ function test_writeToScreen(message) {
     var pre = document.getElementById("coin_strong");
     pre.innerHTML = message;
 }
-function writeToScreen(message) {
-    var pre = document.getElementById("coin_strong");
+
+function writeToScreen(message, htmlid) {
+    var pre = document.getElementById(htmlid);
     pre.innerHTML = message;
-};
+}
 
 window.addEventListener("load", init, false);
-
-

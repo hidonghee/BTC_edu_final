@@ -112,7 +112,7 @@
             <source src="{% static 'homepage/images/bg4.mp4' %}" type="video/mp4">
         </video>
         {% if user.is_authenticated %}
-        <div class="main_user">환영합니다 <b>{{user.id}}</b>님🙇‍♀</div>
+        <div class="main_user"> <b>{{user.id}}</b>님🙇‍♀</div>
         {% else %}
         <div class="main_user"> 로그인이 필요합니다</div>
         {% endif %}

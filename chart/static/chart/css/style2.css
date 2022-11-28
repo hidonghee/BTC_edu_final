@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@100;300;400;500&display=swap');
+
+/*font-family: 'Gowun Dodum', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;*/
+body {
+    width: 100%;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.navbar-brand {
+    margin-right: -12rem;
+}
+
+/*
+.canvasjs-stock-container canvas:nth-child(1) {
+    position: relative !important;
+}
+
+.canvasjs-chart-panel .canvasjs-chart-container .canvasjs-chart-canvas:nth-child(1) {
+    position: absolute !important;
+}
+*/
+
+.coin_price {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 2px solid #ddd
+}
+
+#coin_strong {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.coin_form {
+    padding: 10px 14px;
+    border-top: 2px solid #ddd
+}
+
+.my_asset {
+    display: block;
+    border-right: 2px solid #ddd
+}
+
+.coin_trade {
+    display: block;
+}
+
+.coin_list {
+    display: block;
+    padding: 0 14px;
+    border-bottom: 1px solid #ddd;
+    border-left: 2px solid #ddd;
+}
