@@ -430,8 +430,8 @@ font-family: 'Noto Sans KR', sans-serif;*/
         position: absolute;
         text-align: left;
         font-family: 'Noto Sans KR', sans-serif;
-        font-size: 20px;
-        top: 40%;
+        font-size: 16px;
+        top: 42%;
         left: 6%;
         z-index: 4;
         color: #fff;
@@ -442,14 +442,14 @@ font-family: 'Noto Sans KR', sans-serif;*/
         z-index: 55;
         top: 52%;
         left: 5%;
-        width: 175px;
-        height: 43px;
+        width: 154px;
+        height: 40px;
         background-color: rgba(131, 0, 0, 0.8);
         color: #fff;
         border: 2px solid rgba(255, 255, 255, 0.8);
         border-radius: 10px;
         padding: 0px;
         font-family: 'Noto Sans KR', sans-serif;
-        font-size: 17px;
+        font-size: 14px;
     }
 }
