@@ -1,18 +1,40 @@
 import pymysql
+import pyupbit
 from django.shortcuts import render, redirect
+
 
 # Create your views here.
 
-from chart.views import getkey
-
+from .auto_connect import loginid_select, trade_list_selete
+from chart.views import getkey, abc_access, abc_secret
 
 def main_index(request):
-    return render(request, 'autotrading/index.html')
+    loginid_select(request) #자동매매 사용 중인지 확인
+    id = loginid_select(request)
+
+    #잔고 조회
+    test1 = getkey(request)
+    access_key=test1[1]
+    secret_key=test1[2]
+    upbit = pyupbit.Upbit(access_key, secret_key)
+
+    btc_balance = upbit.get_balance("KRW-BTC")  # 비트코인 갯수 조회
+    btc_price = pyupbit.get_current_price("KRW-BTC")    #비트 코인 현재가격 조회
+    btc = btc_balance * btc_price # 갯수 * 현재가격
+    print("비트코인 양 ", btc)
+    krw = upbit.get_balance("KRW")  # 비트코인 + 현금
+
+    balance = krw + btc
+    print(balance)
+    trade_list = trade_list_selete(request)
+
+    return render(request, 'autotrading/index.html', {'id': id, 'trade_list': trade_list, 'balance': balance})
 
 
 # key 전역 변수 선언
 abc_access = ""
 abc_secret = ""
+
 
 def inserkey(request):
     print("함수 호출")
@@ -33,53 +55,8 @@ def inserkey(request):
         result = curs.fetchall()
         print(result)
 
-        # abc = []
-        # for key in result:
-        #     row = {"access_key": key[0],
-        #            "secret_key": key[1]}
-        #     abc.append(row)
-        #
-        # global abc_access
-        # abc_access = abc[0]['access_key']
-        # global abc_secret
-        # key = "abcbit"
-        # abc_secret = cryptocode.decrypt(abc[0]['secret_key'], key)
-
     finally:
         conn.commit()
         curs.close()
         conn.close()
-        return render(request, 'autotrading/index.html')
-
-# def insertkey(request):
-#     getkey(request)
-#     ip = "abctest.cluster-czgliwfs2orh.ap-northeast-2.rds.amazonaws.com"
-#     dbname = "abcbit"
-#     username = "master"
-#     passwd = "qwer1234"
-#     login_id = request.user
-#     print("유저아이디값:", login_id)
-#     try:
-#         conn = pymysql.connect(host=ip, user=username, password=passwd, db=dbname, use_unicode=True, charset='utf8')
-#         curs = conn.cursor()
-#
-#         sql = "SELECT access_key,secret_key FROM abcbit.users_user" + " WHERE id = %s"
-#         curs.execute(sql, login_id)
-#         result = curs.fetchall()
-#         print("아이디", login_id)
-#         abc = []
-#         for key in result:
-#             row = {"access_key": key[0],
-#                    "secret_key": key[1]}
-#             abc.append(row)
-#
-#         global abc_access
-#         abc_access = abc[0]['access_key']
-#         global abc_secret
-#         key = "abcbit"
-#         abc_secret = cryptocode.decrypt(abc[0]['secret_key'], key)
-#
-#     finally:
-#         curs.close()
-#         conn.close()
-#         return request
+        return redirect('main')

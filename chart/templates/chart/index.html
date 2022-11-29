@@ -50,11 +50,15 @@
                 <div class="coin_name_wrap" style="display: flex; border-bottom: 1px solid #ddd; padding-bottom: 9px">
                     <img src="{% static 'chart/images/bitcoin.png' %}"
                          style="max-width: 35px; max-height: 35px; margin-right: 9px"/>
-                    <h4 style="color: #525252;"> 비트코인 BTC/KRW </h4>
+                    <h4 id="main_name" style="color: #525252;"> 비트코인 BTC/KRW </h4>
                 </div>
-                <!--                <script type="text/javascript" src="{% static 'chart/js/ticker.js' %}"></script>-->
+                <script> var coin_list = "{{nor_ticker|safe}}"</script>
+                <script type="text/javascript" src="{% static 'chart/js/ticker.js' %}"></script>
                 <div class="coin_price_wrap" style="display: flex; flex-direction: row; align-items: baseline;">
-                    <div id="coin_strong"></div>
+                    <div id="main_price">
+                        <!-- 초기 현재가 뿌려주기 위한 임시 span태그와 id입니다!  -->
+                        <span id="KRW-BTC_main_price"></span>
+                    </div>
                     <span style="color: #c84a31; font-size: 14px; margin-left: 5px">KRW</span>
                 </div>
             </div>
@@ -135,10 +139,6 @@
         </div>
         <div class="col-sm-4 bg-white coin_list">
             <h4 style="color: #525252; border-bottom: 1px solid #ddd; padding: 15px 0px;">코인 리스트</h4>
-            <script>
-                var coin_list = "{{nor_ticker|safe}}"
-            </script>
-            <script type="text/javascript" src="{% static 'chart/js/ticker.js' %}"></script>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -148,20 +148,29 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for list in ver_ticker %}
+                {% for price_list in trade_price %}
                 <tr>
                     <th scope="row">
-                        <a href="#{{list.market}}" onclick=coin_chart("{{list.market}}")>
-                            <strong>
-                                {{list.korean_name}}
+                        <a href="#{{price_list.market}}" onclick=coin_chart("{{price_list.market}}")>
+                            <strong id="{{price_list.market}}_kr">
+                                {{price_list.korean_name}}
                             </strong>
                         </a>
                     </th>
                     <td>
-                        {{list.market}}
+                        {{price_list.market}}
                     </td>
                     <td>
-                        <strong id="{{ list.market }}_price"> </strong>
+                        <strong id="{{ price_list.market }}_price">
+                            {% if price_list.change == 'RISE' %}
+                            <span style="color:#c84a31"> {{price_list.trade_price}} </span>
+                            {% elif price_list.change == 'FALL' %}
+                            <span style="color:#1261c4"> {{price_list.trade_price}} </span>
+                            {% elif price_list.change == 'EVEN' %}
+                            <span style="color:#4f555a"> {{price_list.trade_price}} </span>
+                            {% else %}
+                            {% endif %}
+                        </strong>
                     </td>
                 </tr>
                 {% endfor %}
