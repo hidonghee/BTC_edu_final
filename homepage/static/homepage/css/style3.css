@@ -3,6 +3,8 @@
 /*font-family: 'Gowun Dodum', sans-serif;
 font-family: 'Noto Sans KR', sans-serif;*/
 
+
+/*=============== media query ===============*/
 .main_title {
     font-size: 32px;
     color: white;
@@ -131,14 +133,11 @@ font-family: 'Noto Sans KR', sans-serif;*/
 }
 
 .main_user {
-    position: absolute;
     font-family: 'Noto Sans KR', sans-serif;
-    top: 3%;
-    right: 5%;
-    z-index: 4;
-    display: inline-block;
     color: #fff;
+    font-size: 20px;
     letter-spacing: .1em;
+    margin-bottom: 35px;
     text-decoration: none;
     transition: opacity .3s;
 }
@@ -265,12 +264,14 @@ font-family: 'Noto Sans KR', sans-serif;*/
     text-align: center;
     margin-top: 20px;
     top: 27%;
-    right: 10%;
+    right: 5%;
+    width: 50%;
 }
 
 .s1_img {
     animation: motion 1.3s ease 0s infinite;
     margin-top: 0;
+    width: 85%;
 }
 
 
@@ -288,7 +289,6 @@ font-family: 'Noto Sans KR', sans-serif;*/
 /*        position: relative;*/
 /*    }*/
 /*}*/
-
 /*.s1_img_wrap {*/
 /*    display: flex;*/
 /*    align-items: center;*/
@@ -296,8 +296,6 @@ font-family: 'Noto Sans KR', sans-serif;*/
 /*    animation: s1_deco 1.5s ease-out forwards;*/
 /*    overflow: hidden;*/
 /*}*/
-
-
 /*=============== section 2 ===============*/
 .s2_title {
     position: absolute;
@@ -333,6 +331,125 @@ font-family: 'Noto Sans KR', sans-serif;*/
     transition: 0.2s;
 }
 
+@media screen and (max-width: 850px) {
+    .title_image {
+        width: 42% !important;
+    }
 
+    .main_user {
+        font-family: 'Noto Sans KR', sans-serif;
+        color: #fff;
+        font-size: 20px;
+        letter-spacing: .1em;
+        margin-bottom: 35px;
+        text-decoration: none;
+        transition: opacity .3s;
+    }
 
+    .s1_img {
+        display: none;
+    }
 
+    .s2_title {
+        position: absolute;
+        text-align: right;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 36px;
+        top: 42%;
+        right: 8%;
+        z-index: 4;
+        color: #fff;
+    }
+
+    .s2_btn {
+        position: absolute;
+        z-index: 55;
+        top: 53%;
+        right: 8%;
+        width: 220px;
+        height: 58px;
+        background-color: rgba(131, 0, 0, 0.8);
+        color: #fff;
+        border: 3px solid rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 9px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .main_title {
+        font-size: 24px;
+        color: white;
+        margin-bottom: 20px;
+        margin-top: -20px;
+        font-weight: 400;
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .main_user {
+        font-family: 'Noto Sans KR', sans-serif;
+        color: #fff;
+        font-size: 15px;
+        letter-spacing: .1em;
+        margin-bottom: 35px;
+        text-decoration: none;
+        transition: opacity .3s;
+    }
+
+    .title_image {
+        width: 50% !important;
+    }
+
+    #scroll {
+        display: none;
+    }
+
+    .s1_img {
+        display: none;
+    }
+
+    .s1_title_sub {
+        font-family: 'Noto Sans KR', sans-serif;
+        color: #ffffff;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .s1_title_main {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 40px;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        font-weight: 500;
+    }
+
+    .s2_title {
+        position: absolute;
+        text-align: left;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 20px;
+        top: 40%;
+        left: 6%;
+        z-index: 4;
+        color: #fff;
+    }
+
+    .s2_btn {
+        position: absolute;
+        z-index: 55;
+        top: 52%;
+        left: 5%;
+        width: 175px;
+        height: 43px;
+        background-color: rgba(131, 0, 0, 0.8);
+        color: #fff;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 0px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 17px;
+    }
+}
