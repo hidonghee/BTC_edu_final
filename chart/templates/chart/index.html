@@ -149,20 +149,29 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for list in ver_ticker %}
+                {% for price_list in trade_price %}
                 <tr>
                     <th scope="row">
-                        <a href="#{{list.market}}" onclick=coin_chart("{{list.market}}")>
-                            <strong id="{{list.market}}_kr">
-                                {{list.korean_name}}
+                        <a href="#{{price_list.market}}" onclick=coin_chart("{{price_list.market}}")>
+                            <strong id="{{price_list.market}}_kr">
+                                {{price_list.korean_name}}
                             </strong>
                         </a>
                     </th>
                     <td>
-                        {{list.market}}
+                        {{price_list.market}}
                     </td>
                     <td>
-                        <strong id="{{ list.market }}_price"> </strong>
+                        <strong id="{{ price_list.market }}_price">
+                            {% if price_list.change == 'RISE' %}
+                                <span style="color:#c84a31"> {{price_list.trade_price}} </span>
+                            {% elif price_list.change == 'FALL' %}
+                                <span style="color:#1261c4"> {{price_list.trade_price}} </span>
+                            {% elif price_list.change == 'EVEN' %}
+                                <span style="color:#4f555a"> {{price_list.trade_price}} </span>
+                            {% else %}
+                            {% endif %}
+                        </strong>
                     </td>
                 </tr>
                 {% endfor %}
