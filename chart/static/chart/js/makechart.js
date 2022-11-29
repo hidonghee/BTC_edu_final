@@ -1,13 +1,25 @@
-window.onload = function () {
+
+/*
+* 코인별 차트 make js
+* 내용:
+* default onload: 종목은 비트코인 기본 onload, 차트는 기본적으로 1일이 먼저 표기
+*
+* */
+
+window.onload = coin_chart("KRW-BTC")
+
+function coin_chart(coin_name) {
     var dps1 = [], dps2 = [];
     var stockChart = new CanvasJS.StockChart("chartContainer", {
         theme: "light2",
         title: {
-            text: "Technical Indicators: MACD"
+            text: "ABCbit Coin Chart",
+            fontColor: "#000f4b",
+            fontSize: 25,
+            fontFamily: "tahoma",
+            fontWeight: "bold",
+            padding: 15,
         },
-        subtitles: [{
-            text: "Moving Average Convergence Divergence"
-        }],
         charts: [{
             legend: {
                 verticalAlign: "top",
@@ -46,6 +58,7 @@ window.onload = function () {
         }
     });
     updateData();
+    list_main_event(coin_name);
 
     function addData(data) {
         for (var i = 0; i < data.length; i++) {
@@ -65,6 +78,19 @@ window.onload = function () {
     }
 
     function updateData() {
-        $.getJSON("https://api.upbit.com/v1/candles/minutes/1?market=KRW-BTC&count=200", addData)
+        $.getJSON("https://api.upbit.com/v1/candles/days?market="+coin_name+"&count=200", addData)
     }
+    function list_main_event(){
+        var main_name, main_price;
+        var temp_kr;
+        // name
+        main_name = document.getElementById("main_name");
+        temp_kr = document.getElementById(coin_name+'_kr').innerText;
+        main_name.innerText = temp_kr +'/' + coin_name;
+        //price
+        main_price = document.getElementById("main_price");
+        main_price.innerHTML = '<span id='+coin_name+'_main_price'+'>  </span>'
+    }
+
 }
+
