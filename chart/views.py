@@ -41,11 +41,12 @@ def getkey(request):
         global abc_secret
         key = "abcbit"
         abc_secret = cryptocode.decrypt(abc[0]['secret_key'], key)
-
+        print(abc_access)
+        print(abc_secret)
     finally:
         curs.close()
         conn.close()
-        return request
+        return request, abc_access, abc_secret
 
 
 def main_index(request):

@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>autotrading</title>
-    <p>자동매매 페이지</p>
-    <form action="{% url 'insertkey' %}">
-        <input type="submit" value="서비스 등록하기">
-    </form>
 </head>
 <body>
+<p>자동매매 페이지</p>
 
+        {% if id == user.id %}
+        <form action="{% url 'deletekey' %}">
+        <input type="submit" value="서비스 중지하기">
+        </form>
+
+        <p>자동매매용 자산 조회 (현금 + 비트코인)</p>
+        <p> {{balance}}</p><br>
+
+        <p>자동매매 거래 내역</p>
+        {% for i in trade_list %}
+            {% if i.side == "bid" %}
+                매수  금액 : {{ i.price }} 거래 날짜 : {{i.created}}
+            {% else %}
+                매도 수량 : {{i.volume}} 거래 날짜 : {{i.created}}
+            {% endif %}
+        <br>
+        {% endfor %}
+        {% else %}
+        <form action="{% url 'insertkey' %}">
+        <input type="submit" value="서비스 등록하기">
+        </form>
+        {% endif %}
 </body>
 </html>
