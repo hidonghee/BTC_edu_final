@@ -1,5 +1,6 @@
 import asyncio
 import json
+import math
 
 import cryptocode
 import pymysql
@@ -55,25 +56,28 @@ def main_index(request):
 
     # 라이브러리 선언
     upbit = pyupbit.Upbit(abc_access, abc_secret)
-    krw = upbit.get_balance()  # 현금 조회
+    krw = format(math.floor(upbit.get_balance()), ',')  # 현금 조회
     my_balance = upbit.get_balances()  # 코인 조회
     print(type(my_balance))
     # print("파싱전 코인양", my_balance.currency)
 
     coinlist = []
     for i in my_balance:
-        row = {'coin_name': i['currency'],
-               'balance': i['balance'],
-               'avg': i['avg_buy_price']
-               }
-        coinlist.append(row)
-    print(coinlist)
+        print("테스트 ", my_balance)
+        if i['avg_buy_price'] != "0":
+            row = {'coin_name': i['currency'],
+                   'balance': i['balance'],
+                   'avg': i['avg_buy_price']
+                   }
+            coinlist.append(row)
 
     # 코인 리스트 가져오기
     kind = "KRW"
     ver_ticker = ticker_list(kind, True)
     nor_ticker = ','.join([str(i) for i in list(ticker_list(kind, False))])
-    return render(request, 'chart/index.html', {'my_balance': my_balance, 'krw': krw, 'coinlist': coinlist, 'ver_ticker': ver_ticker, 'nor_ticker': nor_ticker})
+    return render(request, 'chart/index.html',
+                  {'my_balance': my_balance, 'krw': krw, 'coinlist': coinlist, 'ver_ticker': ver_ticker,
+                   'nor_ticker': nor_ticker})
     # return HttpResponse("장고 chart 앱 입니다.")
 
 
@@ -109,4 +113,3 @@ def ticker_list(kind, verbose):
     # false하면 market만 list로 출력됨.
     tickers = pyupbit.get_tickers(kind, verbose=verbose)
     return tickers
-

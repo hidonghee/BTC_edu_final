@@ -1,3 +1,5 @@
+import math
+
 import pymysql
 import pyupbit
 from django.shortcuts import render, redirect
@@ -25,9 +27,9 @@ def main_index(request):
     krw = upbit.get_balance("KRW")  # 비트코인 + 현금
 
     balance = krw + btc
+    balance = format(math.floor(balance), ',')
     print(balance)
     trade_list = trade_list_selete(request)
-
     return render(request, 'autotrading/index.html', {'id': id, 'trade_list': trade_list, 'balance': balance})
 
 
