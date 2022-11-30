@@ -1,3 +1,7 @@
+/*
+웹소켓은 해당 종목에 대한 atp(누적금액)이 변경되었을 해당 종목을 수신, 발신할 수 있다.
+ */
+
 var wsUri = "wss://api.upbit.com/websocket/v1";
 
 // var strong;
@@ -55,9 +59,11 @@ function onMessage(evt) {
     if (data.c == 'FALL'){color = '#1261c4'}
     else if (data.c == 'RISE'){color = '#c84a31'}
     else if(data.c == 'EVEN') {color = '#4f555a'}
-    writeToScreen('<span style=color:'+ color +'>' + data.tp + '</span>', data.cd+'_price');
+    // notification fadeout
+    notification(data.cd+'_current',data,color)
+    //writeToScreen('<span id='+data.cd+'_current style=color:'+color+'>'+data.tp+'</span>', data.cd+'_price');
     if (document.getElementById(data.cd+'_main_price')!= null){
-        eventwriteToScreen('<span style=color:'+ color +'>' + data.tp + '</span>',data.cd+'_main_price');
+        eventwriteToScreen('<span style=color:'+ color +'>' + Number(data.tp).toLocaleString('ko-KR') + '</span>',data.cd+'_main_price');
     }
 }
 
@@ -80,11 +86,18 @@ function test_writeToScreen(message) {
 function writeToScreen(message, htmlid) {
     var pre = document.getElementById(htmlid);
     pre.innerHTML = message;
-
 }
 function eventwriteToScreen(message, htmlid){
     var main_price2 = document.getElementById(htmlid);
     main_price2.innerHTML = message;
+}
+function notification(htmlid,data,color) {
+    var current = document.getElementById(htmlid).innerText;
+    if(data.tp > current){
+        writeToScreen('<span class="ticker_notification_up" id='+data.cd+'_current style=color:'+color+'>'+Number(data.tp).toLocaleString('ko-KR')+'</span>', data.cd+'_price');
+    }else if(data.tp < current){
+        writeToScreen('<span class="ticker_notification_down" id='+data.cd+'_current style=color:'+color+'>'+Number(data.tp).toLocaleString('ko-KR')+'</span>', data.cd+'_price');
+    }
 }
 
 window.addEventListener("load", init, false);

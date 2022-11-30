@@ -151,9 +151,11 @@
                 {% for price_list in trade_price %}
                 <tr>
                     <th scope="row">
-                        <a href="#{{price_list.market}}" onclick=coin_chart("{{price_list.market}}")>
+                        <a href="#{{price_list.market}}" onclick=coin_chart("{{price_list.market}}","{{price_list.trade_price}}","{{price_list.change}}")>
                             <strong id="{{price_list.market}}_kr">
-                                {{price_list.korean_name}}
+                                <span>
+                                    {{price_list.korean_name}}
+                                </span>
                             </strong>
                         </a>
                     </th>
@@ -163,11 +165,14 @@
                     <td>
                         <strong id="{{ price_list.market }}_price">
                             {% if price_list.change == 'RISE' %}
-                            <span style="color:#c84a31"> {{price_list.trade_price}} </span>
+                                {% load humanize %}
+                                <span id="{{ price_list.market }}_current" style="color:#c84a31"> {{price_list.trade_price|intcomma}} </span>
                             {% elif price_list.change == 'FALL' %}
-                            <span style="color:#1261c4"> {{price_list.trade_price}} </span>
+                                {% load humanize %}
+                                <span id="{{ price_list.market }}_current" style="color:#1261c4"> {{price_list.trade_price|intcomma}} </span>
                             {% elif price_list.change == 'EVEN' %}
-                            <span style="color:#4f555a"> {{price_list.trade_price}} </span>
+                                {% load humanize %}
+                                <span id="{{ price_list.market }}_current" style="color:#4f555a"> {{price_list.trade_price|intcomma}} </span>
                             {% else %}
                             {% endif %}
                         </strong>

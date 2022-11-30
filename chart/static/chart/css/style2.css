@@ -55,3 +55,32 @@ body {
     overflow-y: scroll;
     max-height: 105vh;
 }
+
+/*실시간 가격 변동에 대한 highligt css 부분!*/
+.ticker_notification_up {
+    animation: fadeout_up 800ms;
+}
+.ticker_notification_down {
+    animation: fadeout_down 800ms;
+}
+@keyframes fadeout_up {
+    from{
+        border: 2px solid rgba(200, 74, 49);
+
+    }
+    to {
+        border: 2px solid rgba(200, 74, 49, 1);
+
+    }
+}
+
+@keyframes fadeout_down {
+    from{
+        border: 2px solid rgb(0, 27, 192);
+
+    }
+    to {
+        border: 2px solid rgba(0, 27, 192, 1);
+
+    }
+}

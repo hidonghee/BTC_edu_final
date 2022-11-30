@@ -6,9 +6,9 @@
 *
 * */
 
-window.onload = coin_chart("KRW-BTC")
+window.onload = coin_chart("KRW-BTC",document.getElementById("KRW-BTC_main_price"),document.getElementById("KRW-BTC_main_price").style.color);
 
-function coin_chart(coin_name) {
+function coin_chart(coin_name, price, change) {
     var dps1 = [], dps2 = [];
     var stockChart = new CanvasJS.StockChart("chartContainer", {
         theme: "light2",
@@ -58,7 +58,7 @@ function coin_chart(coin_name) {
         }
     });
     updateData();
-    list_main_event(coin_name);
+    list_main_event();
 
     function addData(data) {
         for (var i = 0; i < data.length; i++) {
@@ -88,8 +88,13 @@ function coin_chart(coin_name) {
         temp_kr = document.getElementById(coin_name+'_kr').innerText;
         main_name.innerText = temp_kr +'/' + coin_name;
         //price
+        var color = change;
+        if (color == 'RISE'){color = '#c84a31'}
+        else if (color == 'FALL'){color = '#1261c4'}
+        else if (color == 'EVEN') {color = '#4f555a'}
+        else {color = change}
         main_price = document.getElementById("main_price");
-        main_price.innerHTML = '<span id='+coin_name+'_main_price'+'>  </span>'
+        main_price.innerHTML = '<span id='+coin_name+'_main_price'+' style=color:'+color+'>'+price+'</span>'
     }
 
 }
