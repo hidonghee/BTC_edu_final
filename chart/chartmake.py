@@ -3,8 +3,8 @@ pip install pyupbit
 pip install dash
 
 """
-import pyupbit
 
+import pyupbit
 
 # 여기서 모든  캔들 함수는 데이터프레임 타입!
 

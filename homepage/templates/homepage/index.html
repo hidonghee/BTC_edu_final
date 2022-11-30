@@ -5,6 +5,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="Resource-type" content="Document"/>
+    <meta name="viewport"
+          content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style3.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style2.css' %}">
@@ -66,7 +68,7 @@
             z-index: 4;
             width: 100%;
             left: 0;
-            top: 38%;
+            top: 33%;
 
             /*
             * Preventing flicker on some browsers
@@ -99,8 +101,8 @@
 
 <body>
 <ul id="menu">
-    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">home</a></li>
-    <li data-menuanchor="secondPage"><a href="#secondPage">exchage</a></li>
+    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">Home</a></li>
+    <li data-menuanchor="secondPage"><a href="#secondPage">Trading center</a></li>
     <li data-menuanchor="3rdPage"><a href="#3rdPage">Automatic Trading</a></li>
 </ul>
 
@@ -111,14 +113,14 @@
         <video id="myVideo" loop muted data-autoplay playsinline>
             <source src="{% static 'homepage/images/bg4.mp4' %}" type="video/mp4">
         </video>
-        {% if user.is_authenticated %}
-        <div class="main_user">환영합니다 <b>{{user.id}}</b>님🙇‍♀</div>
-        {% else %}
-        <div class="main_user"> 로그인이 필요합니다</div>
-        {% endif %}
         <div class="layer">
+            {% if user.is_authenticated %}
+            <div class="main_user"><b>{{user.id}}</b>님🙇‍♀</div>
+            {% else %}
+            <div class="main_user"> 로그인이 필요합니다</div>
+            {% endif %}
             <div class="main_title"> 가장 안전한 코인 거래소</div>
-            <img style="width: 22%" src="{% static 'homepage/images/ABC logo-04.png' %}"/>
+            <img class="title_image" style="width: 22%" src="{% static 'homepage/images/ABC logo-04.png' %}"/>
             <p class="main_contents">
                 {% if user.is_authenticated %}
             <div class="main_btn_box">
@@ -156,7 +158,7 @@
         <div class="layer">
             <div class="s2_title"> ABCbit의 자동 매매 솔루션과 함께, <br/> 내 자산을 불려 보세요!</div>
             <img style="width: 22%" src="{% static 'homepage/images/ABC logo-04.png' %}"/>>
-            <button class="s2_btn" onclick="location.href='/'"> 자동 매매 시작 하기</button>
+            <button class="s2_btn" onclick="location.href='autotrading/'"> 자동 매매 시작 하기</button>
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@ upbit = pyupbit.Upbit(access, secret)
 
 
 def main_index(request):
-    return render(request, 'exchange/index.html')
+    return render(request, 'chart/index.html')
 
 
 # return HttpResponse("장고 거래, 주문 앱 입니다.")
@@ -25,7 +25,7 @@ def trade(request):
         print(market, volume, side)
         res = upbit.buy_market_order(market, volume)
         print(res)
-        return redirect('http://127.0.0.1:8000/history/')
+        return redirect('chart/index.html')
 
     elif request.POST['side'] == 'ask' :
         print("판매 들어옴")
@@ -33,5 +33,5 @@ def trade(request):
         volume = request.POST['volume']
         res = upbit.sell_market_order(market, volume)
         print(res)
-        return redirect('http://127.0.0.1:8000/history/')
-    return redirect('http://127.0.0.1:8000/history/')
+        return redirect('chart/index.html')
+    return redirect('chart/index.html')
