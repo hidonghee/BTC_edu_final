@@ -35,32 +35,41 @@
         <div class="navbar-nav">
             <a class="nav-item nav-link text-light" href="/"> Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link text-light" href="/chart"> Trading-Center </a>
-            <a class="nav-item nav-link text-light" href="/autotrading"> Auto-Trading </a>
+            <a class="nav-item nav-link text-light" href="/autotrading"> Automatic-Trading </a>
         </div>
     </div>
 </nav>
 
 {% if id == user.id %}
-<form action="{% url 'deletekey' %}">
-    <input type="submit" value="서비스 중지하기">
-</form>
-
-<p>자동매매용 자산 조회 (현금 + 비트코인)</p>
-<p> {{balance}}</p><br>
-
-<p>자동매매 거래 내역</p>
-{% for i in trade_list %}
-{% if i.side == "bid" %}
-매수 금액 : {{ i.price }} 거래 날짜 : {{i.created}}
-{% else %}
-매도 수량 : {{i.volume}} 거래 날짜 : {{i.created}}
-{% endif %}
-<br>
-{% endfor %}
-{% else %}
-<form action="{% url 'insertkey' %}">
-    <input type="submit" value="서비스 등록하기">
-</form>
-{% endif %}
+<div class="container at-container">
+    <div class="row bg-white at_row">
+        <h4 class="row_title"> 자동 매매 서비스 신청 / 중지 </h4>
+        <form action="{% url 'deletekey' %}" class="row1_form">
+            <input type="submit" value="서비스 중지하기">
+        </form>
+    </div>
+    <div class="row bg-white at_row">
+        <h4 class="row_title"> 자동 매매용 자산 조회 <br> (보유 현금 + 비트코인) </h4>
+        <div> {{balance}}</div>
+    </div>
+    <div class="row bg-white at_row">
+        <h4 class="row_title"> 자동 매매 거래 내역 매수 </h4>
+        {% for i in trade_list %}
+        {% if i.side == "bid" %}
+        매수 금액 : {{ i.price }} 거래 날짜 : {{i.created}}
+        {% else %}
+        매도 수량 : {{i.volume}} 거래 날짜 : {{i.created}}
+        {% endif %}
+        <br>
+        {% endfor %}
+        {% else %}
+    </div>
+    <div class="row bg-info">
+        <form action="{% url 'insertkey' %}">
+            <input type="submit" value="서비스 등록하기">
+        </form>
+    </div>
+    {% endif %}
+</div>
 </body>
 </html>
