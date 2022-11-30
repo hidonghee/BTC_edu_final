@@ -23,12 +23,12 @@ def main_index(request):
     btc_balance = upbit.get_balance("KRW-BTC")  # 비트코인 갯수 조회
     btc_price = pyupbit.get_current_price("KRW-BTC")    #비트 코인 현재가격 조회
     btc = btc_balance * btc_price # 갯수 * 현재가격
-    print("비트코인 양 ", btc)
+
     krw = upbit.get_balance("KRW")  # 비트코인 + 현금
 
     balance = krw + btc
     balance = format(math.floor(balance), ',')
-    print(balance)
+
     trade_list = trade_list_selete(request)
     return render(request, 'autotrading/index.html', {'id': id, 'trade_list': trade_list, 'balance': balance})
 
@@ -39,8 +39,8 @@ abc_secret = ""
 
 
 def inserkey(request):
-    print("함수 호출")
-    print(request.user)
+
+
     ip = "abctest.cluster-czgliwfs2orh.ap-northeast-2.rds.amazonaws.com"
     dbname = "abcbit"
     username = "master"
@@ -49,13 +49,12 @@ def inserkey(request):
     try:    
         conn = pymysql.connect(host=ip, user=username, password=passwd, db=dbname, use_unicode=True, charset='utf8')
         curs = conn.cursor()
-        print("login_id",login_id)
+
         sql = "INSERT INTO abcbit.autotrading_autotrade(member_id, member_access_key, member_secret_key) SELECT id, access_key, secret_key FROM abcbit.users_user" + " WHERE id = %s"
         curs.execute(sql, login_id)
-        print("sql", sql)
-        print("curs", curs)
+
         result = curs.fetchall()
-        print(result)
+
 
     finally:
         conn.commit()

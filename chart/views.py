@@ -23,7 +23,7 @@ def getkey(request):
     username = "master"
     passwd = "qwer1234"
     login_id = request.user
-    print("유저아이디값:", login_id)
+
     try:
         conn = pymysql.connect(host=ip, user=username, password=passwd, db=dbname, use_unicode=True, charset='utf8')
         curs = conn.cursor()
@@ -31,7 +31,7 @@ def getkey(request):
         sql = "SELECT access_key,secret_key FROM abcbit.users_user" + " WHERE id = %s"
         curs.execute(sql, login_id)
         result = curs.fetchall()
-        print("아이디", login_id)
+
         abc = []
         for key in result:
             row = {"access_key": key[0],
@@ -43,8 +43,7 @@ def getkey(request):
         global abc_secret
         key = "abcbit"
         abc_secret = cryptocode.decrypt(abc[0]['secret_key'], key)
-        print(abc_access)
-        print(abc_secret)
+
     finally:
         curs.close()
         conn.close()
@@ -58,12 +57,12 @@ def main_index(request):
     upbit = pyupbit.Upbit(abc_access, abc_secret)
     krw = format(math.floor(upbit.get_balance()), ',')  # 현금 조회
     my_balance = upbit.get_balances()  # 코인 조회
-    print(type(my_balance))
+
     # print("파싱전 코인양", my_balance.currency)
 
     coinlist = []
     for i in my_balance:
-        print("테스트 ", my_balance)
+
         if i['avg_buy_price'] != "0":
             row = {'coin_name': i['currency'],
                    'balance': i['balance'],
@@ -91,24 +90,20 @@ def main_index(request):
 def trade(request):
     getkey(request)
     upbit = pyupbit.Upbit(abc_access, abc_secret)
-    print("매수매도 키", abc_access)
-    print("매수매도 키", abc_secret)
-    print("요청값", request.POST['side'])
+
     if request.POST['side'] == 'bid':
         side = request.POST['side']
         market = request.POST['market']
         volume = request.POST['volume']
-        print(market, volume, side)
         res = upbit.buy_market_order(market, volume)
-        print(res)
         return HttpResponseRedirect("/chart")
 
     elif request.POST['side'] == 'ask':
-        print("판매 들어옴")
+
         market = request.POST['market']
         volume = request.POST['volume']
         res = upbit.sell_market_order(market, volume)
-        print(res)
+
         return HttpResponseRedirect("/chart")
     return HttpResponseRedirect("/chart")
 
