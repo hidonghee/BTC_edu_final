@@ -74,10 +74,16 @@ def main_index(request):
     # 코인 리스트 가져오기
     kind = "KRW"
     ver_ticker = ticker_list(kind, True)
-    nor_ticker = ','.join([str(i) for i in list(ticker_list(kind, False))])
+    nor_ticker = ','.join([str(i) for i in list(ticker_list(kind, False))])  # norticker는 웹소켓에 보내줄 array 형식에 필요함.
+
+    # 현재가 restapi로 일시적으로 불러오기
+    trade_price = pyupbit.get_current_price(ticker_list(kind, False), verbose=True)
+    for i in range(len(ver_ticker)):
+        trade_price[i]["korean_name"] = ver_ticker[i]["korean_name"]
     return render(request, 'chart/index.html',
-                  {'my_balance': my_balance, 'krw': krw, 'coinlist': coinlist, 'ver_ticker': ver_ticker,
-                   'nor_ticker': nor_ticker})
+                  {'my_balance': my_balance, 'krw': krw, 'coinlist': coinlist, 'nor_ticker': nor_ticker,
+                   'trade_price': trade_price})
+
     # return HttpResponse("장고 chart 앱 입니다.")
 
 
