@@ -93,6 +93,7 @@ function eventwriteToScreen(message, htmlid){
 }
 function notification(htmlid,data,color) {
     var current = document.getElementById(htmlid).innerText;
+    current = current.replace(/,/g,"")
     if(data.tp > current){
         writeToScreen('<span class="ticker_notification_up" id='+data.cd+'_current style=color:'+color+'>'+Number(data.tp).toLocaleString('ko-KR')+'</span>', data.cd+'_price');
     }else if(data.tp < current){

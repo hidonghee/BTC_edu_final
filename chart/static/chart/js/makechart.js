@@ -94,7 +94,7 @@ function coin_chart(coin_name, price, change) {
         else if (color == 'EVEN') {color = '#4f555a'}
         else {color = change}
         main_price = document.getElementById("main_price");
-        main_price.innerHTML = '<span id='+coin_name+'_main_price'+' style=color:'+color+'>'+price+'</span>'
+        main_price.innerHTML = '<span id='+coin_name+'_main_price'+' style=color:'+color+'>'+Number(price).toLocaleString('ko-KR')+'</span>'
     }
 
 }
