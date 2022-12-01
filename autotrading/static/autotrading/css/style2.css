@@ -30,6 +30,33 @@ body {
     padding: 15px 0px;
 }
 
-.row1_form {
-    margin-top: 20px;
+
+.form_desc {
+    font-size: 16px;
+    font-weight: 400;
+    color: #777777;
+    padding: 13px 0px;
+
+}
+
+.my_asset {
+    font-size: 25px;
+    font-weight: 500;
+    color: rgb(18, 97, 196);
+    padding: 5px 0px;
+}
+
+@media all and (max-width: 480px) {
+    .at_row {
+    display: block;
+    border-bottom: 3px solid #ddd;
+    padding: 15px 10px 15px 10px;
+    text-align: center;
+}
+    .form_desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: #777777;
+    padding: 13px 0px;
+}
 }
