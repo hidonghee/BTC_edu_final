@@ -28,18 +28,30 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark"
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between"
      style="box-shadow: 0px 0px 10px grey; background: linear-gradient(92deg, rgb(2 43 121) 0%, rgb(0 7 62) 80%);">
     <a class="navbar-brand" href="/"> <img src="{% static 'chart/images/ABC logo-04.png'%}" style="width: 40%"> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link text-light" href="/"> Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link text-light" href="#"> Auto-Trading </a>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/"> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/chart"> Trading-Center </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/autotrading"> Automatic-Trading </a>
+            </li>
+        </ul>
+        {% if user.is_authenticated %}
+        <span class="navbar-text text-light">{{user.id}}님🙇‍♀</span>
+        {% else %}
+        <span class="navbar-text text-light">로그인이 필요합니다</span>
+        {% endif %}
     </div>
 </nav>
 
@@ -55,7 +67,7 @@
                 <script> var coin_list = "{{nor_ticker|safe}}"</script>
                 <script type="text/javascript" src="{% static 'chart/js/ticker.js' %}"></script>
                 <div class="coin_price_wrap" style="display: flex; flex-direction: row; align-items: baseline;">
-                    <div id="main_price">
+                    <div id="main_price" style="font-size: 25px; font-weight: 500; padding-top: 5px; padding-left: 5px;">
                         <!-- 초기 현재가 뿌려주기 위한 임시 span태그와 id입니다!  -->
                         <span id="KRW-BTC_main_price"></span>
                     </div>
@@ -74,13 +86,13 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="col" style="color: #000077">거래자</th>
+                                <th scope="col" style="color: #343434">거래자</th>
                                 <th scope="col">{{ user.id }} 님</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <th scope="row" style="color: #000077">보유 현금</th>
+                                <th scope="row" style="color: #343434">보유 현금</th>
                                 <td>{{ krw }}원</td>
                             </tr>
                             {% for i in coinlist %}
@@ -114,7 +126,7 @@
                         <div class="input-group mb-3" style="margin: 20px 0px;">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01"
-                                       style="background-color: #c84a31; color: #fff;">코인 명</label>
+                                       style="background-color: #c84a31; color: #fff; padding: 0px 20px;">코인명</label>
                             </div>
                             <select name="market" class="custom-select" id="inputGroupSelect01">
                                 {% for list in trade_price %}
@@ -124,7 +136,7 @@
                             <div class="input-group mb-3" style="margin: 10px 0px;">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"
-                                          style="background-color: #000077; color: #fff;">금    액</span>
+                                          style="background-color: #000077; color: #fff; padding: 0px 10px;">금액/수량</span>
                                 </div>
                                 <input name="volume" type="text" class="form-control"
                                        placeholder="Amount"
@@ -151,7 +163,8 @@
                 {% for price_list in trade_price %}
                 <tr>
                     <th scope="row">
-                        <a href="#{{price_list.market}}" onclick=coin_chart("{{price_list.market}}","{{price_list.trade_price}}","{{price_list.change}}")>
+                        <a href="#{{price_list.market}}"
+                           onclick=coin_chart("{{price_list.market}}","{{price_list.trade_price}}","{{price_list.change}}")>
                             <strong id="{{price_list.market}}_kr">
                                 <span>
                                     {{price_list.korean_name}}
@@ -165,14 +178,14 @@
                     <td>
                         <strong id="{{ price_list.market }}_price">
                             {% if price_list.change == 'RISE' %}
-                                {% load humanize %}
-                                <span id="{{ price_list.market }}_current" style="color:#c84a31"> {{price_list.trade_price|intcomma}} </span>
+                            {% load humanize %}
+                            <span id="{{ price_list.market }}_current" style="color:#c84a31"> {{price_list.trade_price|intcomma}} </span>
                             {% elif price_list.change == 'FALL' %}
-                                {% load humanize %}
-                                <span id="{{ price_list.market }}_current" style="color:#1261c4"> {{price_list.trade_price|intcomma}} </span>
+                            {% load humanize %}
+                            <span id="{{ price_list.market }}_current" style="color:#1261c4"> {{price_list.trade_price|intcomma}} </span>
                             {% elif price_list.change == 'EVEN' %}
-                                {% load humanize %}
-                                <span id="{{ price_list.market }}_current" style="color:#4f555a"> {{price_list.trade_price|intcomma}} </span>
+                            {% load humanize %}
+                            <span id="{{ price_list.market }}_current" style="color:#4f555a"> {{price_list.trade_price|intcomma}} </span>
                             {% else %}
                             {% endif %}
                         </strong>
