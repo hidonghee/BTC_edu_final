@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-6f$fagx2!17(1dllqr!6qy^!zz%c4w_!c@b_9ln-1=ap_kp$^&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-3-39-237-131.ap-northeast-2.compute.amazonaws.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -139,9 +139,14 @@ USE_TZ = False
 
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+        os.path.join(BASE_DIR,"autotrading","static"),
+    os.path.join(BASE_DIR,"chart","static"),
+    os.path.join(BASE_DIR,"homepage","static"),
+    os.path.join(BASE_DIR,"users","static")
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
