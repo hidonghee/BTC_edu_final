@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@100;300;400;500&display=swap');
+
+/*font-family: 'Gowun Dodum', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;*/
+body {
+    width: 100%;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.navbar-brand {
+    margin-right: -12rem;
+}
+
+/*
+.canvasjs-stock-container canvas:nth-child(1) {
+    position: relative !important;
+}
+
+.canvasjs-chart-panel .canvasjs-chart-container .canvasjs-chart-canvas:nth-child(1) {
+    position: absolute !important;
+}
+*/
+
+.coin_price {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 2px solid #ddd
+}
+
+#coin_strong {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.coin_form {
+    padding: 10px 14px;
+    border-top: 2px solid #ddd
+}
+
+.my_asset {
+    display: block;
+    border-right: 2px solid #ddd
+}
+
+.coin_trade {
+    display: block;
+}
+
+.coin_list {
+    display: block;
+    padding: 0 14px;
+    border-bottom: 2px solid #ddd;
+    border-left: 2px solid #ddd;
+    overflow-y: scroll;
+    max-height: 105vh;
+}
+
+/*실시간 가격 변동에 대한 highligt css 부분!*/
+.ticker_notification_up {
+    animation: fadeout_up 800ms;
+}
+.ticker_notification_down {
+    animation: fadeout_down 800ms;
+}
+@keyframes fadeout_up {
+    from{
+        border: 2px solid rgba(200, 74, 49);
+
+    }
+    to {
+        border: 2px solid rgba(200, 74, 49, 1);
+
+    }
+}
+
+@keyframes fadeout_down {
+    from{
+        border: 2px solid rgb(0, 27, 192);
+
+    }
+    to {
+        border: 2px solid rgba(0, 27, 192, 1);
+
+    }
+}

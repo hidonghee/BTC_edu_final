@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI service
+After=syslog.target
+ 
+[Service]
+ExecStart=/home/ubuntu/BTC_edu_final/venv/bin/uwsgi -i /home/ubuntu/BTC_edu_final/config/uwsgi/abcbit.ini
+
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+ 
+[Install]
+WantedBy=multi-user.target
