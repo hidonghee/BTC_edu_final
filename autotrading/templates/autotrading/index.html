@@ -24,52 +24,87 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark"
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between"
      style="box-shadow: 0px 0px 10px grey; background: linear-gradient(92deg, rgb(2 43 121) 0%, rgb(0 7 62) 80%);">
     <a class="navbar-brand" href="/"> <img src="{% static 'chart/images/ABC logo-04.png'%}" style="width: 40%"> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link text-light" href="/"> Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link text-light" href="/chart"> Trading-Center </a>
-            <a class="nav-item nav-link text-light" href="/autotrading"> Automatic-Trading </a>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/"> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/chart"> Trading-Center </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/autotrading"> Automatic-Trading </a>
+            </li>
+        </ul>
+        {% if user.is_authenticated %}
+        <span class="navbar-text text-light">{{user.id}}님🙇‍♀</span>
+        {% else %}
+        <span class="navbar-text text-light">로그인이 필요합니다</span>
+        {% endif %}
     </div>
 </nav>
 
 {% if id == user.id %}
 <div class="container at-container">
     <div class="row bg-white at_row">
-        <h4 class="row_title"> 자동 매매 서비스 신청 / 중지 </h4>
+        <h4 class="row_title"> 자동 매매 서비스 중지 </h4>
+        <div class="form_desc"> "서비스 중지하기"를 누르면 자동 매매 서비스가 중단됩니다.</div>
         <form action="{% url 'deletekey' %}" class="row1_form">
-            <input type="submit" value="서비스 중지하기">
+            <input class="btn btn-outline-dark btn-lg" type="submit" value="서비스 중지하기">
         </form>
     </div>
     <div class="row bg-white at_row">
         <h4 class="row_title"> 자동 매매용 자산 조회 <br> (보유 현금 + 비트코인) </h4>
-        <div> {{balance}}</div>
+        <div class="my_asset"> {{balance}}</div>
     </div>
     <div class="row bg-white at_row">
         <h4 class="row_title"> 자동 매매 거래 내역 매수 </h4>
-        {% for i in trade_list %}
-        {% if i.side == "bid" %}
-        매수 금액 : {{ i.price }} 거래 날짜 : {{i.created}}
-        {% else %}
-        매도 수량 : {{i.volume}} 거래 날짜 : {{i.created}}
-        {% endif %}
-        <br>
-        {% endfor %}
-        {% else %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">금액/수량</th>
+                <th scope="col">거래일</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in trade_list %}
+            <tr>
+                <th scope="row">
+                    {% if i.side == "bid" %}
+                    <div style="color: #000077"> 매수 금액 : {{ i.price }}</div>
+                    {% else %}
+                    <div style="color: #c84a31"> 매도 수량 : {{i.volume}}</div>
+                    {% endif %}
+                </th>
+                <td>
+                    {% if i.side == "bid" %}
+                    {{i.created}}
+                    {% else %}
+                    {{i.created}}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
-    <div class="row bg-info">
-        <form action="{% url 'insertkey' %}">
-            <input type="submit" value="서비스 등록하기">
-        </form>
+    {% else %}
+    <div class="container at-container">
+        <div class="row bg-white at_row">
+            <h4 class="row_title"> 자동 매매 서비스 신청 </h4>
+            <div class="form_desc"> "서비스 등록하기"를 누르면 자동 매매 서비스가 시작됩니다.</div>
+            <form action="{% url 'insertkey' %}">
+                <input class="btn btn-outline-dark btn-lg" type="submit" value="서비스 등록하기">
+            </form>
+        </div>
     </div>
     {% endif %}
-</div>
 </body>
 </html>
