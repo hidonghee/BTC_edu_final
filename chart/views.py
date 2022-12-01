@@ -52,10 +52,10 @@ def getkey(request):
 
 def main_index(request):
     getkey(request)  # 로그인한 ID의 키값 넣어줌
-
     # 라이브러리 선언
     upbit = pyupbit.Upbit(abc_access, abc_secret)
     krw = format(math.floor(upbit.get_balance()), ',')  # 현금 조회
+    print(krw)
     my_balance = upbit.get_balances()  # 코인 조회
 
     # print("파싱전 코인양", my_balance.currency)
