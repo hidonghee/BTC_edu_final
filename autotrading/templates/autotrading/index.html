@@ -57,7 +57,7 @@
         <h4 class="row_title"> 자동 매매 서비스 중지 </h4>
         <div class="form_desc"> "서비스 중지하기"를 누르면 자동 매매 서비스가 중단됩니다.</div>
         <form action="{% url 'deletekey' %}" class="row1_form">
-            <input class="btn btn-outline-dark btn-lg" type="submit" value="서비스 중지하기">
+            <input class="btn btn-outline-danger" type="submit" value="서비스 중지하기">
         </form>
     </div>
     <div class="row bg-white at_row">
@@ -101,8 +101,43 @@
             <h4 class="row_title"> 자동 매매 서비스 신청 </h4>
             <div class="form_desc"> "서비스 등록하기"를 누르면 자동 매매 서비스가 시작됩니다.</div>
             <form action="{% url 'insertkey' %}">
-                <input class="btn btn-outline-dark btn-lg" type="submit" value="서비스 등록하기">
+                <input class="btn btn-outline-primary" type="submit" value="서비스 등록하기">
             </form>
+        </div>
+        <div class="row bg-white at_row">
+            <h4 class="row_title"> 자동 매매용 자산 조회 <br> (보유 현금 + 비트코인) </h4>
+            <div class="my_asset"> {{balance}}원</div>
+        </div>
+        <div class="row bg-white at_row">
+            <h4 class="row_title"> 자동 매매 거래 내역 매수 </h4>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">금액/수량</th>
+                    <th scope="col">거래일</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in trade_list %}
+                <tr>
+                    <th scope="row">
+                        {% if i.side == "bid" %}
+                        <div style="color: #000077"> 매수 금액 : {{ i.price }}</div>
+                        {% else %}
+                        <div style="color: #c84a31"> 매도 수량 : {{i.volume}}</div>
+                        {% endif %}
+                    </th>
+                    <td>
+                        {% if i.side == "bid" %}
+                        {{i.created}}
+                        {% else %}
+                        {{i.created}}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
     {% endif %}

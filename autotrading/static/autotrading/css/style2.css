@@ -35,28 +35,51 @@ body {
     font-size: 16px;
     font-weight: 400;
     color: #777777;
-    padding: 13px 0px;
+    padding: 15px 0px;
 
 }
 
 .my_asset {
     font-size: 25px;
     font-weight: 500;
-    color: rgb(18, 97, 196);
+    color: rgb(77, 77, 77);
     padding: 5px 0px;
 }
 
 @media all and (max-width: 480px) {
     .at_row {
-    display: block;
-    border-bottom: 3px solid #ddd;
-    padding: 15px 10px 15px 10px;
-    text-align: center;
-}
+        display: block;
+        border-bottom: 3px solid #ddd;
+        padding: 15px 10px 15px 10px;
+        text-align: center;
+    }
+
     .form_desc {
-    font-size: 14px;
-    font-weight: 400;
-    color: #777777;
-    padding: 13px 0px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #777777;
+        padding: 13px 0px;
+    }
 }
+
+.btn-outline-primary {
+    color: #FFFFFF;
+    border-color: rgb(2, 43, 121);
+    background-color: rgb(2, 43, 121);
+}
+
+.btn-outline-primary:hover {
+    background-color: rgb(0, 7, 62);
+    border-color: rgb(0, 7, 62);
+}
+
+.btn-outline-danger {
+    color: #FFFFFF;
+    border-color: #c74a30;
+    background-color: #c74a30;
+}
+
+.btn-outline-danger:hover {
+    background-color: #DE4B31FF;
+    border-color: #DE4B31FF;
 }

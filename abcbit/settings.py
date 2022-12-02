@@ -141,12 +141,11 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-        os.path.join(BASE_DIR,"autotrading","static"),
-    os.path.join(BASE_DIR,"chart","static"),
-    os.path.join(BASE_DIR,"homepage","static"),
-    os.path.join(BASE_DIR,"users","static")
+    os.path.join(BASE_DIR, "autotrading", "static"),
+    os.path.join(BASE_DIR, "chart", "static"),
+    os.path.join(BASE_DIR, "homepage", "static"),
+    os.path.join(BASE_DIR, "users", "static")
 ]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
