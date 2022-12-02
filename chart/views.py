@@ -65,7 +65,7 @@ def main_index(request):
         if i['avg_buy_price'] != "0":
             row = {'coin_name': i['currency'],
                    'balance': i['balance'],
-                   'avg': i['avg_buy_price']
+                   'avg': format(math.floor(int(i['avg_buy_price'])), ',')
                    }
             coinlist.append(row)
 
