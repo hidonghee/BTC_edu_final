@@ -304,13 +304,13 @@ font-family: 'Noto Sans KR', sans-serif;*/
     font-size: 36px;
     top: 33%;
     right: 8%;
-    z-index: 4;
+    z-index: 99;
     color: #fff;
 }
 
 .s2_btn {
     position: absolute;
-    z-index: 55;
+    z-index: 99;
     top: 57%;
     right: 8%;
     width: 220px;
