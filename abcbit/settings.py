@@ -157,4 +157,4 @@ LOGOUT_REDIRECT_URL = '/users/login'
 
 AUTH_USER_MODEL = 'users.User'
 
-CSRF_TRUSTED_ORIGINS = ["https://*.abcbit.shop", "https://*.godbro.shop", "https://*.beeteam.shop","https://*.mwater.shop"]
+CSRF_TRUSTED_ORIGINS = ["https://*", "http://*"]
