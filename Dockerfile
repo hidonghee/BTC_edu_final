@@ -29,8 +29,7 @@ COPY ./proxy_gunicorn.conf /etc/nginx/sites-available/
 RUN rm -rf /etc/nginx/sites-available/default && rm -rf /etc/nginx/sites-enabled/default \ 
 	&& ln -s /etc/nginx/sites-available/proxy_gunicorn.conf /etc/nginx/sites-enabled/default \
 	&& rm -rf /BTC_edu_final/requirements.txt \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& rm -rf /var/log/nginx
+	&& rm -rf /var/lib/apt/lists/* 
 
 WORKDIR /BTC_edu_final 
 
