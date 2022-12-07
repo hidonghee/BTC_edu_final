@@ -1,3 +1,4 @@
+# abcbit apply Dockerfile
 FROM ubuntu:22.04
 
 LABEL MAINTAINER="ABCbit_AWS1 TEAM_ Dongwoo Lee, Shinhyung Kim, Minsu Park, Jihee Seo, Donghee Shin DevOps Project"
