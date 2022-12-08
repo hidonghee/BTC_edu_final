@@ -157,5 +157,5 @@ LOGOUT_REDIRECT_URL = '/users/login'
 
 AUTH_USER_MODEL = 'users.User'
 
-CSRF_TRUSTED_ORIGINS = ["https://.godbro.shop","https://*.godbro.shop", "http://.godbro.shop","http://*.godbro.shop","http://.ap-northeast-2.elb.amazonaws.com","http://*.ap-northeast-2.elb.amazonaws.com","https://*.ap-northeast-2.elb.amazonaws.com","https://.ap-northeast-2.elb.amazonaws.com"]
+CSRF_TRUSTED_ORIGINS = ["https://.abcbit.shop","https://*.abcbit.shop", "http://.abcbit.shop","http://*.abcbit.shop","http://.ap-northeast-2.elb.amazonaws.com","http://*.ap-northeast-2.elb.amazonaws.com","https://*.ap-northeast-2.elb.amazonaws.com","https://.ap-northeast-2.elb.amazonaws.com"]
 
