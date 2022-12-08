@@ -9,6 +9,12 @@
           content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0"/>
     <title>ABCbit</title>
     <link rel="stylesheet" type="text/css" href="{% static 'users/css/style1.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+  	$.ajaxSetup({
+    	headers: { "X-CSRFToken": '{{csrf_token}}' }
+  	});
+    </script>
 </head>
 
 <body>
