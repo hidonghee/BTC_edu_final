@@ -157,4 +157,5 @@ LOGOUT_REDIRECT_URL = '/users/login'
 
 AUTH_USER_MODEL = 'users.User'
 
-CSRF_TRUSTED_ORIGINS = ["https://www.godbro.shop:80", "http://13.209.8.45:80"]
+CSRF_TRUSTED_ORIGINS = ["https://*", "http://*"]
+
