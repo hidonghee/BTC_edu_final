@@ -155,8 +155,12 @@
         </video>
         <div class="layer">
             <div class="s2_title"> ABCbit의 <br/> 자동 매매 솔루션과 함께 <br/> 내 자산을 불려 보세요!</div>
-            <img style="width: 22%" src="{% static 'homepage/images/ABC logo-04.png' %}"/>>
+            <img style="width: 22%" src="{% static 'homepage/images/ABC logo-04.png' %}"/>
+            {% if user.is_authenticated %}
             <button class="s2_btn" onclick="location.href='autotrading/'"> 자동 매매 시작 하기</button>
+            {% else %}
+            <button class="s2_btn" onclick="location.href='usrs/login'"> 로그인이 필요합니다</button>
+            {% endif %}
         </div>
     </div>
 </div>
