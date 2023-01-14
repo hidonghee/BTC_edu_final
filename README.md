@@ -1,56 +1,91 @@
-# 📣 BTC_edu_final 📣
-### 2022 BTC 클라우드 엔지니어 과정 Final Froject
-##
-## 🚗🚗 구축 환경 🚗🚗 
-### 1. AWS 
-### 2. Terraform 
-### 3. Kubernetes 
-### 4. Docker
-##
-## 🍟🍟 개발 환경 🍟🍟 
-### 1. 파이참+Django
-#### 🥨 가상환경 설정 하는 법 🥨
-##### (1) pycham에 깃을 받아온다 => 참고 : https://ellun.tistory.com/280 (VCS에서 git 가져오기까지)
+# ABCbit 코인 거래소 및 자동매매 서비스 구축
 
-##### (2) 본인 작업 브랜치로 변경 : 본인 작업 브랜치로 checkout 
-![image](https://user-images.githubusercontent.com/84059211/201602826-363fe3c2-c777-4165-9915-c87f310aece2.png)
+# 목차
+[1. 개요](#개요) <br/>
+[2. 인프라](#인프라) <br/>
+[3. 코인거래소 ABCbit 웹페이지](#코인거래소-ABCbit-웹페이지)
 
-##### (3) 깃 브랜치 확인
-`````
-PS C:\Users\admin\PycharmProjects\BTC_edu_final> git branch
-* jihee
-  main
-`````
+<br/>
 
-##### (4) 인터프린터 설정 : [file] > [Setting] >  [Project: BTC_edu_final] > [Python Interprinter] 에서 인터 프린터 설정
-##### !!!! 원래 Django 없음 !!!!
-![image](https://user-images.githubusercontent.com/84059211/201604812-7c6144ae-3336-429d-9747-3a2061fd50ab.png)
+## 개요
+- AWS Cloud를 기반으로, 개발 및 운영을 위한 DevOps 프로젝트 진행
 
-##### (5) 장고 사용을 위한 가상환경 구성 : ~~~\venv\Scripts\ 폴더로 이동해서 가상환경 .\activate 실행
-`````
-PS C:\Users\admin\PycharmProjects\BTC_edu_final\venv\Scripts> .\activate
-`````
-##### 아래와 같이 (venv)가 생긴것을 확인 할 수 있다.
-`````
-(venv) PS C:\Users\admin\PycharmProjects\BTC_edu_final\venv\Scripts>
-`````
+### 요구사항
+![image](https://user-images.githubusercontent.com/84059211/212466540-9981747e-95fa-4e86-89f2-0c607060f703.png)
 
-##### (6) 장고 설치 : 아래에서 install package
-![image](https://user-images.githubusercontent.com/84059211/201607495-b545fd2c-fb00-4ced-a105-7c8b8a9cb9fe.png)
+### 구축 인원 및 기간
+- 기간 : 2022-11-14 ~ 2022-12-01
+- 인원 : 5명 
 
-##### (7) 장고 버전 확인
-`````
-(venv) PS C:\Users\admin\PycharmProjects\BTC_edu_final\venv\Scripts> django-admin --version
-4.1.3
-`````
+### 구축환경
+```
+Upbit api를 활용한 웹 서비스 구축
+```
+![image](https://user-images.githubusercontent.com/84059211/212466367-1720147a-9b6b-4d1d-a322-02c099b323d9.png)
 
-##### (8) 장고 실행
-`````
-(venv) PS C:\Users\admin\PycharmProjects\BTC_edu_final> python .\manage.py runserver
-`````
-![image](https://user-images.githubusercontent.com/84059211/201606916-3c3bea73-772e-4cde-afec-5724f36ac21b.png)
+### Slack을 활용한 생산성 향상
+![image](https://user-images.githubusercontent.com/84059211/212466480-f8bffe1d-833f-443b-9917-1df81cf8078a.png)
 
+<br/>
 
+## 인프라
+### Solution Architecture
+```
+Terraform을 활용한 인프라 구축
+```
+![image](https://user-images.githubusercontent.com/84059211/212466595-97a4bbe5-d361-4e38-ad72-0f0f5cc3e9ec.png)
 
+### Kubernetes
+```
+namespace를 통한 Kubernetes환경 분리
+```
+![image](https://user-images.githubusercontent.com/84059211/212466655-d20a7099-78ea-4139-be11-0ce9950462c3.png)
 
+### CI/CD
+```
+Github, Jenkins, ArgoCD를 활용한 Test, Production 파이프라인으로 분리 운영
+```
+#### TEST 파이프라인
+![image](https://user-images.githubusercontent.com/84059211/212466737-475f9f3f-ab44-4284-98a9-7e23d2c7a803.png)
 
+#### Production 파이프라인
+![image](https://user-images.githubusercontent.com/84059211/212467001-9bc9fdd6-3215-4fa1-a8a6-b265b46a951e.png)
+
+### 모니터링
+```
+프로메테우스와 그라파나를 사용한 EKS의 Node 및 Pod 모니터링
+```
+![image](https://user-images.githubusercontent.com/84059211/212467121-db4aa420-dafa-47c7-9528-c567451be119.png)
+```
+AWS 리소스 모니터링
+```
+![image](https://user-images.githubusercontent.com/84059211/212467184-1bd1d661-7365-4478-b80f-ad8f3f4edbfc.png)
+```
+모니터링 이중화를 위한 쉘 스크립트 작성
+```
+![image](https://user-images.githubusercontent.com/84059211/212467216-f6e2c7ff-d5fd-4dbe-b769-5091ab08400e.png)
+
+### 로그관리
+![image](https://user-images.githubusercontent.com/84059211/212467232-c9a98e2b-a5d7-4760-b8e1-ab8cc45e792f.png)
+
+<br/>
+
+## 코인거래소 ABCbit 웹페이지
+### 메인 페이지
+```
+로그인 및 로그아웃, 거래소, 자동매매 페이지 이동 가능
+```
+![image](https://user-images.githubusercontent.com/84059211/212468504-1c9226eb-90d3-4d5e-9ca2-ac05900952bb.png)
+
+### 거래소 페이지
+```
+Upbit API를 활용한 코인 시세 및 리스트 , 변동 차트, 보유 자산, 매수매도 기능
+```
+![image](https://user-images.githubusercontent.com/84059211/212468665-7e1648ec-e969-4d17-bd20-c537ee22b80d.png)
+
+### 자동 매매
+```
+비트 코인 자동 매매 서비스 신청 및 중지, 자산 조회, 자동 매매 거래 내역 확인 
+매수된 코인은 다음날 오전 9시에 일괄 매도
+```
+![image](https://user-images.githubusercontent.com/84059211/212468706-bc5e5434-7f51-4b6d-b436-9f3f33e9cc1c.png)
