@@ -8,14 +8,17 @@
 <br/>
 
 ## 개요
-- AWS Cloud를 기반으로, 개발 및 운영을 위한 DevOps 프로젝트 진행
+- CSP : AWS
+- 개발 및 인프라 운영, CI/CD(지속적 통합/배포)를 구현한 DvOps 프로젝트 
+- EKS(Elastic Kubernetes Service)사용한 MSA(Micro Service Architecture)구축, 기능별 Pod 분리 운영
 
 ### 요구사항
 ![image](https://user-images.githubusercontent.com/84059211/212466540-9981747e-95fa-4e86-89f2-0c607060f703.png)
 
 ### 구축 인원 및 기간
 - 기간 : 2022-11-14 ~ 2022-12-01
-- 인원 : 5명 
+- 인원 : 5명(프론트엔드 개발 1명, 백엔드 개발 2명, 인프라 구축 2명)
+- 담당 : 프론트엔드 개발
 
 ### 구축환경
 ```
