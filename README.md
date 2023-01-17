@@ -2,9 +2,9 @@
 
 ## Repository
 ### Terraform을 이용한 인프라 자동화
-### <b><a href="https://github.com/bbyu2/BTC_edu_final_terraform"> - 코인거래소 웹 사이트 ABCbit 3Tier Architecture 구축 Code </a></b>
+### <b><a href="https://github.com/bbyu2/BTC_edu_final_terraform"> - 코인거래소 웹 사이트 ABCbit 3Tier Architecture 구축 </a></b>
 ### Jenkins, ArgoCD를 활용한 CI/CD
-### <b><a href="https://github.com/bbyu2/BTC_edu_final_CICD"> - 코인거래소 웹 사이트 ABCbit CI/CD Code </a></b>
+### <b><a href="https://github.com/bbyu2/BTC_edu_final_CICD"> - 코인거래소 웹 사이트 ABCbit CI/CD </a></b>
 
 ## 개요
 - CSP : AWS
