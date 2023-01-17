@@ -18,10 +18,10 @@ upbit = pyupbit.Upbit(abc_access, abc_secret)
 
 # DB에서 KEY 꺼내서 복호화해서 전역변수에 넣어줌
 def getkey(request):
-    ip = "abctest.cluster-czgliwfs2orh.ap-northeast-2.rds.amazonaws.com"
-    dbname = "abcbit"
-    username = "master"
-    passwd = "qwer1234"
+    ip = "###"
+    dbname = "###"
+    username = "###"
+    passwd = "###"
     login_id = request.user
 
     try:
