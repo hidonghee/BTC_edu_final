@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6f$fagx2!17(1dllqr!6qy^!zz%c4w_!c@b_9ln-1=ap_kp$^&'
+SECRET_KEY = '###'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -92,11 +92,11 @@ WSGI_APPLICATION = 'abcbit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # engine: mysql
-        'NAME': 'abcbit',  # DB Name
-        'USER': 'master',  # DB User
-        'PASSWORD': 'qwer1234',  # Password
-        'HOST': 'abctest.cluster-czgliwfs2orh.ap-northeast-2.rds.amazonaws.com',  # 생성한 데이터베이스 엔드포인트
-        'PORT': '3306',  # 데이터베이스 포트
+        'NAME': '###',  # DB Name
+        'USER': '###',  # DB User
+        'PASSWORD': '###',  # Password
+        'HOST': '###.rds.amazonaws.com',  # 생성한 데이터베이스 엔드포인트
+        'PORT': '###',  # 데이터베이스 포트
         'CHARSET': 'utf8',
         'COLLATION': 'utf8_general_ci',
         'OPTIONS': {
