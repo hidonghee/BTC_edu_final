@@ -16,9 +16,9 @@
 ![image](https://user-images.githubusercontent.com/84059211/212466540-9981747e-95fa-4e86-89f2-0c607060f703.png)
 
 ### 구축 인원 및 기간
-- 기간 : 2022-11-14 ~ 2022-12-01
-- 인원 : 5명(프론트엔드 개발 1명, 백엔드 개발 2명, 인프라 구축 2명)
-- 담당 : 프론트엔드 개발
+- <b> 기간 : 2022-11-14 ~ 2022-12-01 </b> 
+- <b> 인원 : 5명(프론트엔드 개발 1명, 백엔드 개발 2명, 인프라 구축 2명) </b>
+- <b> 담당 : 프론트엔드 개발 </b>
 
 ### 구축환경
 ```
@@ -33,8 +33,9 @@ Upbit api를 활용한 웹 서비스 구축
 
 ## 인프라
 ### Solution Architecture
+### <b><a href="https://github.com/bbyu2/BTC_edu_final_terraform"> 코인거래소 웹 사이트 ABCbit 3Tier Architecture 구축 Code </a></b>
 ```
-Terraform을 활용한 인프라 구축
+Terraform을 이용한 인프라 자동화 
 ```
 ![image](https://user-images.githubusercontent.com/84059211/212466595-97a4bbe5-d361-4e38-ad72-0f0f5cc3e9ec.png)
 
@@ -45,6 +46,7 @@ namespace를 통한 Kubernetes환경 분리
 ![image](https://user-images.githubusercontent.com/84059211/212466655-d20a7099-78ea-4139-be11-0ce9950462c3.png)
 
 ### CI/CD
+### <b><a href="https://github.com/bbyu2/BTC_edu_final_CICD"> 코인거래소 웹 사이트 ABCbit CI/CD Code </a></b>
 ```
 Github, Jenkins, ArgoCD를 활용한 Test, Production 파이프라인으로 분리 운영
 ```
