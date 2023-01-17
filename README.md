@@ -7,9 +7,9 @@
 ### <b><a href="https://github.com/bbyu2/BTC_edu_final_CICD"> - 코인거래소 웹 사이트 ABCbit CI/CD </a></b>
 
 ## 개요
-- CSP : AWS
-- 개발 및 인프라 운영, CI/CD(지속적 통합/배포)를 구현한 DvOps 프로젝트 
-- EKS(Elastic Kubernetes Service)사용한 MSA(Micro Service Architecture)구축, 기능별 Pod 분리 운영
+- <b> CSP : AWS </b>
+- <b> 개발 및 인프라 운영, CI/CD(지속적 통합/배포)를 구현한 DvOps 프로젝트 </b>
+- <b> EKS(Elastic Kubernetes Service)사용한 MSA(Micro Service Architecture)구축, 기능별 Pod 분리 운영 </b>
 
 ### 요구사항
 ![image](https://user-images.githubusercontent.com/84059211/212466540-9981747e-95fa-4e86-89f2-0c607060f703.png)
