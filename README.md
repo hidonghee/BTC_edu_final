@@ -56,3 +56,12 @@ Upbit API를 활용한 코인 시세 및 리스트 , 변동 차트, 보유 자�
 매수된 코인은 다음날 오전 9시에 일괄 매도
 ```
 ![image](https://user-images.githubusercontent.com/84059211/212468706-bc5e5434-7f51-4b6d-b436-9f3f33e9cc1c.png)
+
+***
+
+<div align=center>
+<h3> 👈 back to main 👈 </h3>
+<a href="https://github.com/bbyu2"> 
+<img src="https://img.shields.io/endpoint?label=bbyu2&logo=github&style=for-the-badge&url=https%3A%2F%2Fgithub.com%2Fbbyu2%2F"/>
+</a>
+</div>
