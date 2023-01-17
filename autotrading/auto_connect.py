@@ -10,10 +10,10 @@ from django.urls import reverse
 
 
 def loginid_select(request):
-    ip = "abctest.cluster-czgliwfs2orh.ap-northeast-2.rds.amazonaws.com"
-    dbname = "abcbit"
-    username = "master"
-    passwd = "qwer1234"
+    ip = "###"
+    dbname = "###"
+    username = "###"
+    passwd = "###"
     try:
         conn = pymysql.connect(host=ip, user=username, password=passwd, db=dbname, use_unicode=True, charset='utf8')
         curs = conn.cursor()
@@ -39,10 +39,10 @@ def loginid_select(request):
 
 # 자동매매 서비스 사용 중지
 def stop_autotrade(request):
-    ip = "abctest.cluster-czgliwfs2orh.ap-northeast-2.rds.amazonaws.com"
-    dbname = "abcbit"
-    username = "master"
-    passwd = "qwer1234"
+    ip = "###"
+    dbname = "###"
+    username = "###"
+    passwd = "###"
 
     try:
         conn = pymysql.connect(host=ip, user=username, password=passwd, db=dbname, use_unicode=True, charset='utf8')
@@ -61,10 +61,10 @@ def stop_autotrade(request):
 
 # 자동매매 거래 리스트 가져오기
 def trade_list_selete(request):
-    ip = "abctest.cluster-czgliwfs2orh.ap-northeast-2.rds.amazonaws.com"
-    dbname = "abcbit"
-    username = "master"
-    passwd = "qwer1234"
+    ip = "###"
+    dbname = "###"
+    username = "###"
+    passwd = "###"
     try:
         conn = pymysql.connect(host=ip, user=username, password=passwd, db=dbname, use_unicode=True, charset='utf8')
         curs = conn.cursor()
