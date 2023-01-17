@@ -23,10 +23,10 @@ abc_secret = ""
 
 
 def getdata(request, sql):
-    ip = "abctest.cluster-czgliwfs2orh.ap-northeast-2.rds.amazonaws.com"
-    dbname = "abcbit"
-    username = "master"
-    passwd = "qwer1234"
+    ip = "###"
+    dbname = "###"
+    username = "###"
+    passwd = "###"
     login_id = request.user
     try:
         conn = pymysql.connect(host=ip, user=username, password=passwd, db=dbname, use_unicode=True, charset='utf8')
