@@ -12,9 +12,9 @@
 <br/><br/>
 
 ## 개요
-- <b> AWS 서비스를 바탕으로 CI/CD(지속적 통합/배포)를 구현한 DevOps 프로젝트 </b>
-- <b> Terraform 코드를 통한 인프라 구축 및 python을 기반으로 Django 프레임워크로 개발 진행
-- <b> EKS(Elastic Kubernetes Service)사용한 MSA(Micro Service Architecture)구축, 기능별 Pod 분리 운영 </b>
+#### AWS 서비스를 바탕으로 CI/CD(지속적 통합/배포)를 구현한 DevOps 프로젝트
+#### Terraform 코드를 통한 인프라 구축 및 python을 기반으로 Django 프레임워크로 개발 진행
+#### EKS(Elastic Kubernetes Service)사용한 MSA(Micro Service Architecture)구축, 기능별 Pod 분리 운영
 
 <br/>
 
@@ -27,14 +27,17 @@
 <br/>
 
 ### 구축 인원 및 기간
-- <b> 기간 : 2022-11-14 ~ 2022-12-14 (총 4주) </b> 
-- <b> 인원 : 5명 (프론트엔드 개발 1명, 백엔드 개발 2명, 인프라 구축 2명) </b>
+#### - 기간 : 2022-11-14 ~ 2022-12-14 (총 4주) </b> 
+#### - 인원 : 5명 (프론트엔드 개발 1명, 백엔드 개발 2명, 인프라 구축 2명) </b>
 
 <br/>
 
 ### 구축환경
 ```
-Upbit api를 활용한 웹 서비스 구축
+1. Git, Slack Notion 등을 이용한 협업 
+2. Django 프레임워크를 바탕으로 python, javascript, html, css를 사용하여 웹 페이지 구축
+3. AWS 서비스를 바탕으로 Terraform, Docker, K8S를 이용한 MSA구축
+4. 코인거래 서비스를 위한 Upbit api 및 그래프CanvasJS를 활용한  개발 및 반응형 웹페이지를 위한 Bootstrap이용
 ```
 ![image](https://user-images.githubusercontent.com/84059211/212466367-1720147a-9b6b-4d1d-a322-02c099b323d9.png)
 
