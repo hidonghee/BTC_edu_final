@@ -12,9 +12,9 @@
 <br/><br/>
 
 ## 개요
-#### AWS 서비스를 바탕으로 CI/CD(지속적 통합/배포)를 구현한 DevOps 프로젝트
-#### Terraform 코드를 통한 인프라 구축 및 python을 기반으로 Django 프레임워크로 개발 진행
-#### EKS(Elastic Kubernetes Service)사용한 MSA(Micro Service Architecture)구축, 기능별 Pod 분리 운영
+#### - AWS 서비스를 바탕으로 CI/CD(지속적 통합/배포)를 구현한 DevOps 프로젝트
+#### - Terraform 코드를 통한 인프라 구축 및 python을 기반으로 Django 프레임워크로 개발 진행
+#### - EKS(Elastic Kubernetes Service)사용한 MSA(Micro Service Architecture)구축, 기능별 Pod 분리 운영
 
 <br/>
 
@@ -37,7 +37,7 @@
 1. Git, Slack Notion 등을 이용한 협업 
 2. Django 프레임워크를 바탕으로 python, javascript, html, css를 사용하여 웹 페이지 구축
 3. AWS 서비스를 바탕으로 Terraform, Docker, K8S를 이용한 MSA구축
-4. 코인거래 서비스를 위한 Upbit api 및 그래프CanvasJS를 활용한  개발 및 반응형 웹페이지를 위한 Bootstrap이용
+4. 코인거래 서비스를 위한 Upbit api 및 반응형 웹페이지를 위한 Bootstrap등을 이용하여 개발 진행
 ```
 ![image](https://user-images.githubusercontent.com/84059211/212466367-1720147a-9b6b-4d1d-a322-02c099b323d9.png)
 
@@ -51,16 +51,16 @@ python을 통한 슬랙 챗봇을 개발하여, 프로젝트시 관련 자료를
 
 <br/>
 
-### 담당 역할
-- FrontEnd 개발과 발표 자료 생성, 최종 발표 진행을 메인으로 담당 
-- Backend 및 Infra팀에서 참고할 코드 및 자료를 함께 찾아 테스트하는 등 보조 역할 진행
+### 🙌 담당 역할 🙌 
+#### - FrontEnd 개발과 발표 자료 생성, 최종 발표 진행을 메인으로 담당 
+#### - Backend 및 Infra팀에서 참고할 코드 및 자료를 함께 찾아 테스트하는 등 보조 역할 진행
 
 <br/><br/>
 
 ## 코인거래소 ABCbit 웹페이지
 ### 메인 페이지
 ```
-로그인 및 로그아웃, 거래소, 자동매매 페이지 이동 가능
+풀페이지 형태의 디자인으로 로그인 및 로그아웃, 거래소, 자동매매 페이지 이동 가능
 ```
 ![image](https://user-images.githubusercontent.com/84059211/212468504-1c9226eb-90d3-4d5e-9ca2-ac05900952bb.png)
 
@@ -68,7 +68,7 @@ python을 통한 슬랙 챗봇을 개발하여, 프로젝트시 관련 자료를
 
 ### 반응형 디자인
 ```
-프로젝트 발표 시 홈페이지 접속 QR코드를 제공함으로써, 모바일 접속자를 위한 반응형 웹 페이지 구현
+프로젝트 발표 시 홈페이지 접속을 위한 QR코드를 제공함으로, 모바일 접속자를 위한 반응형 웹 페이지 구현
 ```
 ![image](https://user-images.githubusercontent.com/84059211/212819414-2216ee05-7dd4-4275-8240-9dff18d6bfcb.png)
 
@@ -76,7 +76,7 @@ python을 통한 슬랙 챗봇을 개발하여, 프로젝트시 관련 자료를
 
 ### 거래소 페이지
 ```
-Upbit API를 활용한 코인 시세 및 리스트 , 변동 차트, 보유 자산, 매수매도 기능
+Upbit API를 활용한 코인 시세 및 리스트 조회, 실시간 코인 가격 변동 차트, 보유 자산, 코인 매수 매도 기능
 ```
 ![image](https://user-images.githubusercontent.com/84059211/212468665-7e1648ec-e969-4d17-bd20-c537ee22b80d.png)
 
@@ -84,8 +84,8 @@ Upbit API를 활용한 코인 시세 및 리스트 , 변동 차트, 보유 자�
 
 ### 자동 매매  페이지
 ```
-비트 코인 자동 매매 서비스 신청 및 중지, 자산 조회, 자동 매매 거래 내역 확인 
-매수된 코인은 다음날 오전 9시에 일괄 매도
+1. 코인 자동 매매 서비스 신청 및 중지, 자동 매매용 자산 조회, 자동 매매 거래 내역 확인 
+2. 본 프로젝트의 전략에 따라 매수된 코인은 다음날 오전 9시에 일괄 매도 
 ```
 ![image](https://user-images.githubusercontent.com/84059211/212468706-bc5e5434-7f51-4b6d-b436-9f3f33e9cc1c.png)
 
