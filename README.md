@@ -1,6 +1,6 @@
 # ABCbit 코인 거래소 및 자동매매 서비스 구축
-(🥇First prize) Semi team Project - based on AWS
-└ 고가용성 및 부하분산을 위한 3Tier(WEB, WAS, DB) Architecture 구축 프로젝트
+(🥈grand prize) Final team Project - based on AWS
+└ Git, Jenkins, ArgoCD등 통합 및 배포 자동화를 구현한 DevOps 프로젝트
 ## Repository
 ```
 프로젝트 관리를 위한 개발(현 레포지토리) 및 인프라, CI/CD 레포지토리 분리 사용
