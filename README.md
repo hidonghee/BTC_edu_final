@@ -57,6 +57,7 @@ python을 통한 슬랙 챗봇을 개발하여, 프로젝트시 관련 자료를
 #### - Upbit API를 이용해 canvasJS로 chart 그래프 구현, WebSocket을 이용하여 실시간 코인 변동 가격 파싱 및 이벤트처리
 #### - python 코드를 통해 upbint API 데이터 가공, 챗봇 코드 수정
 #### - Docker 환경에서의 구현 및 nginx, django, gunicorn 관리
+#### - AWS 모니터링 구성 및 Grafana 대시보드 관리
 
 <br/><br/>
 
