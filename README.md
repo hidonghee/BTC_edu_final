@@ -5,9 +5,9 @@
 프로젝트 관리를 위한 개발(현 레포지토리) 및 인프라, CI/CD 레포지토리 분리 사용
 ```
 ### Terraform을 이용한 인프라 자동화
-### <b><a href="https://github.com/bbyu2/BTC_edu_final_terraform"> - 코인거래소 웹 사이트 ABCbit 3Tier Architecture 구축 </a></b>
+### <b><a href="https://github.com/hidonghee/BTC_edu_final_terraform"> - 코인거래소 웹 사이트 ABCbit 3Tier Architecture 구축 </a></b>
 ### Jenkins, ArgoCD를 활용한 CI/CD 자동화
-### <b><a href="https://github.com/bbyu2/BTC_edu_final_CICD"> - 코인거래소 웹 사이트 ABCbit CI/CD </a></b>
+### <b><a href="https://github.com/hidonghee/BTC_edu_final_CICD"> - 코인거래소 웹 사이트 ABCbit CI/CD </a></b>
 
 <br/><br/>
 
@@ -38,6 +38,8 @@
 2. Django 프레임워크를 바탕으로 python, javascript, html, css를 사용하여 웹 페이지 구축
 3. AWS 서비스를 바탕으로 Terraform, Docker, K8S를 이용한 MSA구축
 4. 코인거래 서비스를 위한 Upbit api 및 반응형 웹페이지를 위한 Bootstrap등을 이용하여 개발 진행
+##### <b><a href="https://docs.upbit.com/"> - Upbit API 개발자 센터 </a></b>
+
 ```
 ![image](https://user-images.githubusercontent.com/84059211/212466367-1720147a-9b6b-4d1d-a322-02c099b323d9.png)
 
@@ -52,9 +54,9 @@ python을 통한 슬랙 챗봇을 개발하여, 프로젝트시 관련 자료를
 <br/>
 
 ### 🙌 담당 역할 🙌 
-#### - FrontEnd 개발과 발표 자료 생성, 최종 발표 진행을 메인으로 담당 
-#### - CI/CD 파이프 라인 구축
-#### - Backend 및 Infra팀에서 참고할 코드 및 자료를 함께 찾아 테스트하는 등 보조 역할 진행
+#### - Upbit API를 이용해 canvasJS로 chart 그래프 구현, WebSocket을 이용하여 실시간 코인 변동 가격 파싱 및 이벤트처리
+#### - python 코드를 통해 upbint API 데이터 가공, 챗봇 코드 수정
+#### - Docker 환경에서의 구현 및 nginx, django, gunicorn 관리
 
 <br/><br/>
 
@@ -95,7 +97,7 @@ Upbit API를 활용한 코인 시세 및 리스트 조회, 실시간 코인 가�
 
 <div align=center>
 <h4> 👈 back to main 👈 </h4>
-<a href="https://github.com/bbyu2"> 
+<a href="https://github.com/"> 
 <img src="https://img.shields.io/endpoint?label=bbyu2&logo=github&style=for-the-badge&url=https%3A%2F%2Fgithub.com%2Fbbyu2%2F"/>
 </a>
 </div>
